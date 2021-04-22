@@ -680,6 +680,9 @@ a{
                 margin-bottom: 8rem;
             }
         }
+        &.reverse{
+            flex-direction: row-reverse;
+        }
         @include tab{
             display: block;
         }
