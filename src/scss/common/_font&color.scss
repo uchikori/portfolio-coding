@@ -1,0 +1,16 @@
+/* フォントファミリー*/
+$font:"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+$font-orbit: 'Orbitron',"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+
+/*フォントカラー*/
+$color-dark:     #333333;
+$color-border:      #050523;
+$color-trans-bg:     #050523;
+$color-white:     #ffffff;
+
+
+$ease-cb: cubic-bezier(.4,0,.2,1);
+$ease-cb-2: cubic-bezier(.19,1,.22,1);
+$ease-cb-3: cubic-bezier(.77,0,.175,1);
+$ease-cb-4: cubic-bezier(.99,1,.92,1);
+$ease-cb-5: cubic-bezier(0.870, 0.095, 0.985, -0.080);

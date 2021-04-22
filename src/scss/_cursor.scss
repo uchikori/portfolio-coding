@@ -1,0 +1,40 @@
+// .cursor,.follower{
+//     border-radius: 50%;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     cursor: none;
+//     pointer-events: none;
+// }
+.cursor{
+    position: absolute;
+    transform: scale(0.8);
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background: $color-white;
+    transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+    0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+    pointer-events: none;
+    &.is-hover{
+        opacity: 1;
+        transform: scale(3);
+    }
+}
+.follower{
+    position: absolute;
+    transform: translate(4px, 4px);
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: rgba(198, 0, 105, 0.5);
+    transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+        0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) background;
+    pointer-events: none;
+    &.is-hover{
+        background: rgba(86, 0, 198, 0.5);
+        transform: scale(2);
+    }
+}
