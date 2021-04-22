@@ -1894,6 +1894,13 @@ a {
   margin-bottom: 5.6rem;
 }
 
+.content .flex-block.reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
 .content .flex-block .flex-item .flex-item__title {
   display: block;
   margin: 0;
