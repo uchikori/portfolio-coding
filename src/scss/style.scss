@@ -56,6 +56,9 @@ body{
     overflow-x: hidden;
     position: relative;
     cursor: none;
+    @include tab{
+        cursor: auto;
+    }
 }
 img{
     width: 100%;
@@ -616,6 +619,13 @@ a{
             margin-bottom: 4rem;
             line-height: 3rem;
         }
+        &.flex-item__title{
+            display: block;
+            margin: 0;
+            @include tab{
+                margin-bottom: 4rem;
+            }
+        }
     }
     p{
         @include font-style(1.6rem, $color-white, normal);
@@ -687,13 +697,7 @@ a{
             display: block;
         }
         .flex-item{
-            .flex-item__title{
-                display: block;
-                margin: 0;
-                @include tab{
-                    margin-bottom: 4rem;
-                }
-            }
+
             &.sns-tag{
                 display: flex;
                 align-items: center;
@@ -1062,10 +1066,19 @@ a{
     //gallery
     .gallery-item{
         padding: 10rem 0;
+        @include tab{
+            padding: 0;
+        }
         &__image{
             height: 41.6rem;
             filter: grayscale(100%);
             transition: filter 0.8s ease;
+            &.vertical{
+                height: 72rem;
+                @include tab{
+                    height: 33.8rem;
+                }
+            }
             &.is-hover{
                 filter: grayscale(0%);
                 transition: filter 0.8s ease;
@@ -1076,6 +1089,7 @@ a{
             }
             @include tab{
                 margin-bottom: 3.2rem;
+                height: 19.6rem;
             }
         }
         &__num{
@@ -1084,7 +1098,10 @@ a{
             font-family: $font-orbit;
             text-transform: uppercase;
             margin-bottom: 1.6rem;
-            display: inline-block;
+            display: block;
+            @include tab{
+                font-size: 1rem;
+            }
         }
         &__title{
             @include font-style(3.2rem, $color-white, normal);
@@ -1093,6 +1110,10 @@ a{
             margin-bottom: 1.6rem;
             padding: 0;
             border: none;
+            @include tab{
+                font-size: 2rem;
+                
+            }
         }
         &__en-title{
             display: block;
@@ -1101,6 +1122,9 @@ a{
             font-family: $font-orbit;
             text-transform: uppercase;
             margin-bottom: 1.6rem;
+            @include tab{
+                font-size: 1rem;
+            }
         }
         &__category{
             display: inline-block;
@@ -1113,9 +1137,17 @@ a{
             color: #000438;
             margin-bottom: 4rem;
             text-decoration: none;
+            @include tab{
+                font-size: 1rem;
+                padding: 0.3rem 1.4rem;
+                margin-bottom: 2.4rem;
+            }
         }
         &__description{
             margin-bottom: 8rem;
+            @include tab{
+                margin-bottom: 4.8rem;
+            }
         }
         &__link{
             @include font-style(2rem, $color-white, bold);
@@ -1124,6 +1156,7 @@ a{
             text-transform: uppercase;
             text-decoration: none;
             position: relative;
+            display: inline-block;
             &:after{
                 content: "";
                 display: block;

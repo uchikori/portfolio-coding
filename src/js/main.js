@@ -45,61 +45,64 @@ if(scrollOn){
  * 
  */
 function mouseStorker(){
-    const cursor = document.querySelector(".js-cursor");
-    const follower = document.querySelector(".js-follower");
-    const target = document.querySelectorAll("a");
-    const menu = document.querySelector('.list-menu');
-    console.log(target);
-    console.log(cursor);
-    console.log(follower);
-
-    let posX = 0;
-    let posY = 0;
-    let mouseX = 0;
-    let mouseY = 0;
-
-    gsap.to({}, 0.007, {
-    repeat: -1,
-    onRepeat: function () {
-        posX += (mouseX - posX) / 8;
-        posY += (mouseY - posY) / 8;
-
-        gsap.set(follower, {
-        css: {
-            top: posY - 20,
-            left: posX - 20
+    if(!navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)){
+        const cursor = document.querySelector(".js-cursor");
+        const follower = document.querySelector(".js-follower");
+        const target = document.querySelectorAll("a");
+        const menu = document.querySelector('.list-menu');
+        console.log(target);
+        console.log(cursor);
+        console.log(follower);
+    
+        let posX = 0;
+        let posY = 0;
+        let mouseX = 0;
+        let mouseY = 0;
+    
+        gsap.to({}, 0.007, {
+        repeat: -1,
+        onRepeat: function () {
+            posX += (mouseX - posX) / 8;
+            posY += (mouseY - posY) / 8;
+    
+            gsap.set(follower, {
+            css: {
+                top: posY - 20,
+                left: posX - 20
+            }
+            });
+    
+            gsap.set(cursor, {
+            css: {
+                top: mouseY,
+                left: mouseX
+            }
+            });
         }
         });
-
-        gsap.set(cursor, {
-        css: {
-            top: mouseY,
-            left: mouseX
-        }
+    
+        window.addEventListener("mousemove", (e) => {
+            mouseX = e.pageX;
+            mouseY = e.pageY;
         });
-    }
-    });
-
-    window.addEventListener("mousemove", (e) => {
-        mouseX = e.pageX;
-        mouseY = e.pageY;
-    });
-
-    // マウスオーバー時の処理
-    target.forEach(function(item){
-        item.onmouseover = function(){
+    
+        // マウスオーバー時の処理
+        target.forEach(function(item){
+            item.onmouseover = function(){
+                follower.classList.add('is-hover');
+            }
+            item.onmouseout = function(){
+                follower.classList.remove('is-hover');
+            }
+        });
+        menu.onmouseover = function(){
             follower.classList.add('is-hover');
         }
-        item.onmouseout = function(){
+        menu.onmouseout = function(){
             follower.classList.remove('is-hover');
         }
-    });
-    menu.onmouseover = function(){
-        follower.classList.add('is-hover');
     }
-    menu.onmouseout = function(){
-        follower.classList.remove('is-hover');
-    }
+
 }
 
 /**
@@ -510,16 +513,29 @@ function scrollAnimation(){
     });
 }
 
+/**
+ * 
+ * 
+ * galleryページ リンクホバーアニメーション
+ * * 
+ */
 function mouseHover(){
     const galleryLink = document.querySelectorAll('.gallery-item__link');
-    const galleryImage = document.querySelector('.gallery-item__image');
-    console.log(galleryLink);
-    galleryLink.forEach(function(item){
+    const galleryImage = document.querySelectorAll('.gallery-item__image');
+    galleryLink.forEach(function(item, index){
         item.onmouseover = function() {
-            galleryImage.classList.add('is-hover')
+            var index = [].slice.call(galleryLink).indexOf(item);
+            console.log(index);
+            let imageIndex = galleryImage[index];
+            console.log(imageIndex);
+            imageIndex.classList.add('is-hover');
+            
         }
         item.onmouseout = function(){
-            galleryImage.classList.remove('is-hover')
+            var index = [].slice.call(galleryLink).indexOf(item);
+            console.log(index);
+            let imageIndex = galleryImage[index];
+            imageIndex.classList.remove('is-hover');
         }
     });
 }

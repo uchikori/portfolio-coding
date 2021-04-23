@@ -1834,6 +1834,11 @@ a {
   line-height: 3.6rem;
 }
 
+.content h2.flex-item__title {
+  display: block;
+  margin: 0;
+}
+
 .content p {
   font-size: 25.6px;
   font-size: 1.6rem;
@@ -1899,11 +1904,6 @@ a {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-}
-
-.content .flex-block .flex-item .flex-item__title {
-  display: block;
-  margin: 0;
 }
 
 .content .flex-block .flex-item.sns-tag {
@@ -2303,6 +2303,11 @@ a {
   transition: filter 0.8s ease, -webkit-filter 0.8s ease;
 }
 
+.content .gallery-item__image.vertical {
+  height: 1152px;
+  height: 72rem;
+}
+
 .content .gallery-item__image.is-hover {
   filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter></svg>#filter');
   -webkit-filter: grayscale(0%);
@@ -2333,7 +2338,7 @@ a {
   text-transform: uppercase;
   margin-bottom: 25.6px;
   margin-bottom: 1.6rem;
-  display: inline-block;
+  display: block;
 }
 
 .content .gallery-item__title {
@@ -2395,6 +2400,7 @@ a {
   text-transform: uppercase;
   text-decoration: none;
   position: relative;
+  display: inline-block;
 }
 
 .content .gallery-item__link:after {
@@ -2510,8 +2516,17 @@ footer small {
 }
 
 @media (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
+  .follower {
+    display: none;
+  }
   html {
     font-size: 1.30208vw;
+  }
+  body {
+    cursor: auto;
   }
   .one-column {
     width: 100%;
@@ -2612,6 +2627,9 @@ footer small {
     margin-bottom: 4rem;
     line-height: 3rem;
   }
+  .content h2.flex-item__title {
+    margin-bottom: 4rem;
+  }
   .content p {
     font-size: 1.2rem;
   }
@@ -2629,9 +2647,6 @@ footer small {
   }
   .content .flex-block {
     display: block;
-  }
-  .content .flex-block .flex-item .flex-item__title {
-    margin-bottom: 4rem;
   }
   .content .external-link {
     font-size: 1.2rem;
@@ -2732,8 +2747,32 @@ footer small {
   .content .section-separate:before, .content .section-separate:after {
     width: 9.6rem;
   }
+  .content .gallery-item {
+    padding: 0;
+  }
+  .content .gallery-item__image.vertical {
+    height: 33.8rem;
+  }
   .content .gallery-item__image {
     margin-bottom: 3.2rem;
+    height: 19.6rem;
+  }
+  .content .gallery-item__num {
+    font-size: 1rem;
+  }
+  .content .gallery-item__title {
+    font-size: 2rem;
+  }
+  .content .gallery-item__en-title {
+    font-size: 1rem;
+  }
+  .content .gallery-item__category {
+    font-size: 1rem;
+    padding: 0.3rem 1.4rem;
+    margin-bottom: 2.4rem;
+  }
+  .content .gallery-item__description {
+    margin-bottom: 4.8rem;
   }
   .link-btn.contact {
     font-size: 2rem;
