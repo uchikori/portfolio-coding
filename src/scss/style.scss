@@ -462,6 +462,7 @@ a{
     transition: background 1s $ease-cb-4, transform 0.5s ease;
     transform-origin: left;
     transform-style: preserve-3d;
+    overflow-y: hidden;
     .is-sliding &{
         background-color: $color-trans-bg;
         transition: background 0.3s $ease-cb-4;
@@ -514,6 +515,11 @@ a{
     &.notes{
         &:before{
             background-image: url('../images/service-backround@2x.webp');
+        }
+    }
+    &.gallery{
+        &:before{
+            background-image: url('../images/works-backround@2x.webp')
         }
     }
 }
@@ -697,7 +703,6 @@ a{
             display: block;
         }
         .flex-item{
-
             &.sns-tag{
                 display: flex;
                 align-items: center;
@@ -1247,3 +1252,140 @@ footer{
         }
     }
 }
+
+//-------------------------------
+//  Single
+//-------------------------------
+.main-visual-single{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    margin-bottom: -36.3rem;
+    &__inner{
+        margin: 0 auto;
+        height: 100%;
+        width: 1168px;
+        @include wide-pc{
+            width: 1168px;
+        }
+        @include tab{
+            width: 84vw;
+        }
+        @include pc-tab{
+            width: 88vw;
+        }
+    }
+    &__header{
+        z-index: 9;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    &__title{
+        .single-category{
+            display: inline-block;
+            @include font-style(2rem, $color-white, bold);
+            line-height: 1;
+            font-family: $font-orbit;
+            text-transform: uppercase;
+            padding: 0.5rem 2.8rem;
+            background-color: $color-white;
+            color: #000438;
+            margin-bottom: 3.2rem;
+            text-decoration: none;
+            @include tab{
+                font-size: 1rem;
+                padding: 0.3rem 1.4rem;
+                margin-bottom: 2.4rem;
+            }
+        }
+        .single-title{
+            @include font-style(4.8rem, $color-white, normal);
+            line-height: 1;
+            display: block;
+            margin-bottom: 3.2rem;
+            padding: 0;
+            border: none;
+            @include tab{
+                font-size: 2rem;
+                
+            }
+        }
+        .single-en-title{
+            display: block;
+            @include font-style(2rem, $color-white, normal);
+            line-height: 1;
+            font-family: $font-orbit;
+            text-transform: uppercase;
+            @include tab{
+                font-size: 1rem;
+            }
+        }
+    }
+}
+.content{
+    .first-image{
+        width: 154.4rem;
+        height: 83.2rem;
+        margin: 0 calc(50%-77.2rem) 8rem;
+    }
+    .gallery-meta{
+        &__item{
+            text-align: center;
+            // background-color: $color-trans-bg;
+            padding-top: 0.4rem;
+        }
+        &__title{
+            @include font-style(2.4rem, $color-white, normal);
+            font-family: $font-orbit;
+            line-height: 1;
+            display: block;
+            margin-bottom: 1.6rem;
+            padding: 0;
+            border-left: none;
+            text-transform: uppercase;
+        }
+        &__info{
+            @include font-style(1.6rem, $color-white, normal);
+            line-height: 2;
+        }
+    }
+    .mockup-image{
+        &__pc{
+            width: 100vw;
+            height: 90rem;
+            margin: 0 calc(50% -50vw);
+        }
+        &__wrap{
+            width: 100vw;
+            margin: 0 calc(50% -50vw);
+            background-color: #f5f5f5;
+            padding: 10rem 0;
+        }
+        &__video{
+            width: 116.8rem;
+            height: 64rem;
+            video{
+                width: 100%;
+                height: 64rem;
+                object-fit: cover;
+            }
+        }
+        &__tab{
+            width: 96.8rem;
+            height: 64.5rem;
+            margin: 0 auto -5rem auto;
+            z-index: 10;
+            img{
+                object-fit: cover;
+            }
+        }
+        &__sp{
+            width: 100vw;
+            height: 70rem;
+            margin: 0 calc(50% - 50vw);
+
+        }
+    }
+}
+
