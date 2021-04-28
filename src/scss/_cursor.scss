@@ -17,6 +17,9 @@
     transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
     0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
     pointer-events: none;
+    @include tab{
+        display: none;
+    }
     &.is-hover{
         opacity: 1;
         transform: scale(3);
@@ -33,6 +36,9 @@
     transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
         0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) background;
     pointer-events: none;
+    @include tab{
+        display: none;
+    }
     &.is-hover{
         background: rgba(86, 0, 198, 0.5);
         transform: scale(2);

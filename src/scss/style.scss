@@ -56,6 +56,9 @@ body{
     overflow-x: hidden;
     position: relative;
     cursor: none;
+    @include tab{
+        cursor: auto;
+    }
 }
 img{
     width: 100%;
@@ -459,6 +462,7 @@ a{
     transition: background 1s $ease-cb-4, transform 0.5s ease;
     transform-origin: left;
     transform-style: preserve-3d;
+    overflow-y: hidden;
     .is-sliding &{
         background-color: $color-trans-bg;
         transition: background 0.3s $ease-cb-4;
@@ -497,7 +501,7 @@ a{
     }
     &.about{
         &:before{
-            background-image: url('../images/about-backgroundptn2-2.webp');
+            background-image: url('../images/about-background.webp');
             @include tab{
                 background-position: right -25rem bottom;
             }
@@ -505,12 +509,22 @@ a{
     } 
     &.service{
         &:before{
-            background-image: url('../images/service-backround@2x.webp');
+            background-image: url('../images/service-backround.webp');
         }
     }
     &.notes{
         &:before{
-            background-image: url('../images/service-backround@2x.webp');
+            background-image: url('../images/service-backround.webp');
+        }
+    }
+    &.gallery{
+        &:before{
+            background-image: url('../images/gallery-background.webp')
+        }
+    }
+    &.single{
+        &:before{
+            background-image: url('../images/service-background.webp')
         }
     }
 }
@@ -616,6 +630,13 @@ a{
             margin-bottom: 4rem;
             line-height: 3rem;
         }
+        &.flex-item__title{
+            display: block;
+            margin: 0;
+            @include tab{
+                margin-bottom: 4rem;
+            }
+        }
     }
     p{
         @include font-style(1.6rem, $color-white, normal);
@@ -680,17 +701,13 @@ a{
                 margin-bottom: 8rem;
             }
         }
+        &.reverse{
+            flex-direction: row-reverse;
+        }
         @include tab{
             display: block;
         }
         .flex-item{
-            .flex-item__title{
-                display: block;
-                margin: 0;
-                @include tab{
-                    margin-bottom: 4rem;
-                }
-            }
             &.sns-tag{
                 display: flex;
                 align-items: center;
@@ -1059,10 +1076,19 @@ a{
     //gallery
     .gallery-item{
         padding: 10rem 0;
+        @include tab{
+            padding: 0;
+        }
         &__image{
             height: 41.6rem;
             filter: grayscale(100%);
             transition: filter 0.8s ease;
+            &.vertical{
+                height: 72rem;
+                @include tab{
+                    height: 33.8rem;
+                }
+            }
             &.is-hover{
                 filter: grayscale(0%);
                 transition: filter 0.8s ease;
@@ -1073,6 +1099,7 @@ a{
             }
             @include tab{
                 margin-bottom: 3.2rem;
+                height: 19.6rem;
             }
         }
         &__num{
@@ -1081,7 +1108,10 @@ a{
             font-family: $font-orbit;
             text-transform: uppercase;
             margin-bottom: 1.6rem;
-            display: inline-block;
+            display: block;
+            @include tab{
+                font-size: 1rem;
+            }
         }
         &__title{
             @include font-style(3.2rem, $color-white, normal);
@@ -1090,6 +1120,10 @@ a{
             margin-bottom: 1.6rem;
             padding: 0;
             border: none;
+            @include tab{
+                font-size: 2rem;
+                
+            }
         }
         &__en-title{
             display: block;
@@ -1098,6 +1132,9 @@ a{
             font-family: $font-orbit;
             text-transform: uppercase;
             margin-bottom: 1.6rem;
+            @include tab{
+                font-size: 1rem;
+            }
         }
         &__category{
             display: inline-block;
@@ -1110,9 +1147,17 @@ a{
             color: #000438;
             margin-bottom: 4rem;
             text-decoration: none;
+            @include tab{
+                font-size: 1rem;
+                padding: 0.3rem 1.4rem;
+                margin-bottom: 2.4rem;
+            }
         }
         &__description{
             margin-bottom: 8rem;
+            @include tab{
+                margin-bottom: 4.8rem;
+            }
         }
         &__link{
             @include font-style(2rem, $color-white, bold);
@@ -1121,6 +1166,7 @@ a{
             text-transform: uppercase;
             text-decoration: none;
             position: relative;
+            display: inline-block;
             &:after{
                 content: "";
                 display: block;
@@ -1211,3 +1257,422 @@ footer{
         }
     }
 }
+
+//-------------------------------
+//  Single
+//-------------------------------
+.main-visual-single{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    margin-bottom: -36.3rem;
+    @include tab{
+        margin-bottom: -16.5rem;
+    }
+    &__inner{
+        margin: 0 auto;
+        height: 100%;
+        width: 1168px;
+        @include wide-pc{
+            width: 1168px;
+        }
+        @include tab{
+            width: 84vw;
+        }
+        @include pc-tab{
+            width: 88vw;
+        }
+    }
+    &__header{
+        z-index: 9;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    &__title{
+        .single-category{
+            display: inline-block;
+            @include font-style(2rem, $color-white, bold);
+            line-height: 1;
+            font-family: $font-orbit;
+            text-transform: uppercase;
+            padding: 0.5rem 2.8rem;
+            background-color: $color-white;
+            color: #000438;
+            margin-bottom: 3.2rem;
+            text-decoration: none;
+            @include tab{
+                font-size: 1.4rem;
+                padding: 0.6rem 2.7rem;
+                margin-bottom: 1.6rem;
+            }
+        }
+        .single-title{
+            @include font-style(4.8rem, $color-white, normal);
+            line-height: 1;
+            display: block;
+            margin-bottom: 3.2rem;
+            padding: 0;
+            border: none;
+            @include tab{
+                font-size: 3.2rem;
+                line-height: 1.5;
+                margin-bottom: 1.6rem;
+                
+            }
+        }
+        .single-en-title{
+            display: block;
+            @include font-style(2rem, $color-white, normal);
+            line-height: 1;
+            font-family: $font-orbit;
+            text-transform: uppercase;
+            @include tab{
+                font-size: 1.4rem;
+                line-height: 2.6;
+            }
+        }
+    }
+}
+.content{
+    .first-image{
+        width: 154.4rem;
+        height: 83.2rem;
+        margin: 0 calc(50%-77.2rem) 8rem;
+        @include tab{
+            width: 100%;
+            height: 17rem;
+            margin: 0 auto 4rem auto;
+        }
+    }
+    .gallery-meta{
+        @include tab{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        &__item{
+            text-align: center;
+            // background-color: $color-trans-bg;
+            padding-top: 0.4rem;
+            @include tab{
+                width: 15rem;
+                padding-top: 0.7rem;
+                padding-bottom: 0.6rem;
+                margin-bottom: 2.5rem;
+                &:nth-child(3){
+                    margin-bottom: 0;
+                }
+                &:nth-child(4){
+                    margin-bottom: 0;
+                }
+            }
+        }
+        &__title{
+            @include font-style(2.4rem, $color-white, normal);
+            font-family: $font-orbit;
+            line-height: 1;
+            display: block;
+            margin-bottom: 1.6rem;
+            padding: 0;
+            border-left: none;
+            text-transform: uppercase;
+            @include tab{
+                font-size: 1.2rem;
+                margin-bottom: 1.8rem;
+            }
+        }
+        &__info{
+            @include font-style(1.6rem, $color-white, normal);
+            line-height: 2;
+            @include tab{
+                font-size: 1rem;
+                line-height: 1;
+            }
+        }
+    }
+    .mockup-image{
+        &__pc{
+            width: 100vw;
+            height: 90rem;
+            margin: 0 calc(50% -50vw);
+            @include tab{
+                height: 17.6rem;
+            }
+        }
+        // &__wrap{
+        //     width: 100vw;
+        //     margin: 0 calc(50% -50vw);
+        //     background-color: #f5f5f5;
+        //     padding: 10rem 0;
+        //     @include tab{
+        //         padding: 4rem 0;
+        //     }
+        // }
+        &__video{
+            width: 116.8rem;
+            height: 64rem;
+            @include tab{
+                width: 100%;
+                height: 20rem;
+            }
+            video{
+                width: 100%;
+                height: 64rem;
+                object-fit: cover;
+                @include tab{
+                    height: 20rem;
+                }
+            }
+        }
+        &__tab{
+            width: 96.8rem;
+            height: 64.5rem;
+            margin: 0 auto -5rem auto;
+            z-index: 10;
+            img{
+                object-fit: cover;
+            }
+            @include tab{
+                width: 100%;
+                height: 20.9rem;
+                margin: 0 auto -2.4rem auto;
+            }
+        }
+        &__sp{
+            width: 100vw;
+            height: 70rem;
+            margin: 0 calc(50% - 50vw);
+            position: relative;
+            z-index: -10;
+            @include tab{
+                height: 24rem;
+            }
+        }
+    }
+}
+//iphone CSS
+.mockup__iphone{
+    text-align: center;
+    div{
+        display: block;
+    }
+      
+    *, *:after, *:before {
+        -webkit-transition: all 0.3s ease;
+        -moz-transition:    all 0.3s ease;
+        -ms-transition:     all 0.3s ease;
+        -o-transition:      all 0.3s ease;
+    }
+      
+    .device {
+        display: inline-block;
+        position: relative;
+    }
+      
+    .bt1 {
+        top:11.1rem;
+        height:3.3rem;
+        @include tab{
+            top: 6.9375rem;
+            height: 2.0625;
+        }
+    }
+      
+    .bt2 {
+        top: 18.6rem;
+        @include tab{
+            top: 11.625rem;
+        }
+    }
+      
+    .bt3 {
+        top: 24.5rem;
+        @include tab{
+            top: 15.3125rem;
+        }
+    }
+      
+    .screen {
+        border: 2px solid #000;
+        border-radius: 2px; 
+        background: #fff;
+        clear: both;
+        position:relative;
+        overflow:hidden;
+    }
+    .case {
+        background: #2b2b2b;
+        position: relative;
+        border-radius: 4.5rem;
+        box-shadow: 0px 0px 3px 1px #000 inset;
+        border: 2px solid #4a4a4a;
+        @include tab{
+            border-radius: 2.4rem;
+        }
+    }
+      
+    .border {
+        border: 0.5rem solid #3d3d3d;
+        border-radius: 5.1rem;
+        @include tab{
+            border-radius: 2.72rem;
+            border: 0.3rem solid #3d3d3d;
+        }
+    }
+      
+      
+    .camera {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top:2.5rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        display: block;
+        border-radius: 0.8rem;
+        background: #454545;
+        border: 0.4rem solid #000;
+        @include tab{
+            top: 1.5625rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 0.5rem;
+        }
+    }
+      
+    .speaker {
+        width: 6.2rem;
+        height: 0.8rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top:5.9rem;
+        display: block;
+        border-radius: 0.8rem;
+        background: #454545;
+        border: 0.4rem solid #000; 
+        @include tab{
+            width: 3.875rem;
+            height: 0.5rem;
+            top: 3.2rem;
+            border-radius: 0.5rem;
+            border: 0.1rem solid #000;
+        }
+    }
+      
+    .homebt {
+        width: 5.6rem;
+        height: 5.6rem;
+        display: block;
+        z-index: 1;
+        position: relative;
+        background: #404040;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 1.4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        @include tab{
+            bottom: 0.875rem;
+        }
+    }
+      
+    .homebt:before {
+        content:' ';
+        width: 2rem;
+        height: 2rem;
+        display: block;
+        margin: 0 auto;
+        border: 2px solid #6e6e6e;
+        background: #404040;
+        border-radius: 3px;
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include tab{
+            border: 1px solid #6e6e6e;
+        }
+    }
+      
+    /* iphone */
+    .iphone .speaker {
+        opacity: 1
+    }
+    
+    .iphone .screen {
+        width: 32rem;
+        height: 56rem;
+        margin: 8.3rem 2.2rem 8.2rem;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        @include tab{
+            width: 20rem;
+            height: 36rem;
+            margin: 5rem 1.375rem 5rem;
+        }
+        &:-webkit-scrollbar{
+            display: none;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+      
+    .iphone .homebt {
+        width: 5.6rem;
+        height: 5.6rem;
+        @include tab{
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+      
+    .iphone .homebt:before {
+        width: 2rem;
+        height: 2rem;
+        @include tab{
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    }
+      
+    .iphone .sidebt {
+        position: absolute;
+        width: 0.3rem;
+        height: 2.5rem;
+        background: #4d4d4d;
+        border: 1px solid #3e3e3e;
+        left: -0.4rem;
+        border-top-left-radius:3px;
+        border-bottom-left-radius:3px;
+        @include tab{
+            width: 0.1875rem;
+            height: 1.5625rem;
+        }
+    }
+      
+    .iphone .pwrbt {
+        position: absolute;
+        top:-0.4rem;
+        right:6.3rem;
+        background: #4d4d4d;
+        border: 1px solid #3e3e3e; 
+        border: 1px solid #3e3e3e;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        width: 5.9rem;
+        height: 0.3rem;
+        @include tab{
+            width: 3.6875rem;
+            right: 3.9375rem;
+            height: 1.5625rem;
+            top: -0.25rem;
+        }
+    }
+}
+
+

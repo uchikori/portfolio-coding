@@ -64,58 +64,60 @@ if (scrollOn) {
 
 
 function mouseStorker() {
-  var cursor = document.querySelector(".js-cursor");
-  var follower = document.querySelector(".js-follower");
-  var target = document.querySelectorAll("a");
-  var menu = document.querySelector('.list-menu');
-  console.log(target);
-  console.log(cursor);
-  console.log(follower);
-  var posX = 0;
-  var posY = 0;
-  var mouseX = 0;
-  var mouseY = 0;
-  gsap.to({}, 0.007, {
-    repeat: -1,
-    onRepeat: function onRepeat() {
-      posX += (mouseX - posX) / 8;
-      posY += (mouseY - posY) / 8;
-      gsap.set(follower, {
-        css: {
-          top: posY - 20,
-          left: posX - 20
-        }
-      });
-      gsap.set(cursor, {
-        css: {
-          top: mouseY,
-          left: mouseX
-        }
-      });
-    }
-  });
-  window.addEventListener("mousemove", function (e) {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
-  }); // マウスオーバー時の処理
+  if (!navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)) {
+    var cursor = document.querySelector(".js-cursor");
+    var follower = document.querySelector(".js-follower");
+    var target = document.querySelectorAll("a");
+    var menu = document.querySelector('.list-menu');
+    console.log(target);
+    console.log(cursor);
+    console.log(follower);
+    var posX = 0;
+    var posY = 0;
+    var mouseX = 0;
+    var mouseY = 0;
+    gsap.to({}, 0.007, {
+      repeat: -1,
+      onRepeat: function onRepeat() {
+        posX += (mouseX - posX) / 8;
+        posY += (mouseY - posY) / 8;
+        gsap.set(follower, {
+          css: {
+            top: posY - 20,
+            left: posX - 20
+          }
+        });
+        gsap.set(cursor, {
+          css: {
+            top: mouseY,
+            left: mouseX
+          }
+        });
+      }
+    });
+    window.addEventListener("mousemove", function (e) {
+      mouseX = e.pageX;
+      mouseY = e.pageY;
+    }); // マウスオーバー時の処理
 
-  target.forEach(function (item) {
-    item.onmouseover = function () {
+    target.forEach(function (item) {
+      item.onmouseover = function () {
+        follower.classList.add('is-hover');
+      };
+
+      item.onmouseout = function () {
+        follower.classList.remove('is-hover');
+      };
+    });
+
+    menu.onmouseover = function () {
       follower.classList.add('is-hover');
     };
 
-    item.onmouseout = function () {
+    menu.onmouseout = function () {
       follower.classList.remove('is-hover');
     };
-  });
-
-  menu.onmouseover = function () {
-    follower.classList.add('is-hover');
-  };
-
-  menu.onmouseout = function () {
-    follower.classList.remove('is-hover');
-  };
+  }
 }
 /**
  * 
@@ -540,18 +542,31 @@ function scrollAnimation() {
     });
   });
 }
+/**
+ * 
+ * 
+ * galleryページ リンクホバーアニメーション
+ * * 
+ */
+
 
 function mouseHover() {
   var galleryLink = document.querySelectorAll('.gallery-item__link');
-  var galleryImage = document.querySelector('.gallery-item__image');
-  console.log(galleryLink);
-  galleryLink.forEach(function (item) {
+  var galleryImage = document.querySelectorAll('.gallery-item__image');
+  galleryLink.forEach(function (item, index) {
     item.onmouseover = function () {
-      galleryImage.classList.add('is-hover');
+      var index = [].slice.call(galleryLink).indexOf(item);
+      console.log(index);
+      var imageIndex = galleryImage[index];
+      console.log(imageIndex);
+      imageIndex.classList.add('is-hover');
     };
 
     item.onmouseout = function () {
-      galleryImage.classList.remove('is-hover');
+      var index = [].slice.call(galleryLink).indexOf(item);
+      console.log(index);
+      var imageIndex = galleryImage[index];
+      imageIndex.classList.remove('is-hover');
     };
   });
 }
