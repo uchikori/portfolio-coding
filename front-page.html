@@ -77,8 +77,9 @@
       <!-- Single Slide Main Section -->
       <section class="slide  is-active">
         <div class="slide__content">
+          <figure class="slide__figure"><canvas id="siteTopAnimation" class="slide__img"></canvas></figure>
           
-          <canvas id="siteTopAnimation" class="slide__figure"></canvas>
+          
           <header class="slide__header">
             <div class="slide__title">
               <h1 class="title-line head-title head-title__main"><span><img src="dist/images/site-title.svg" alt="UCHIWA Creative Studio."></span></h1>
@@ -92,7 +93,7 @@
       <!-- Single Slide About Section-->
       <section class="slide">
         <div class="slide__content">
-          <figure class="slide__figure"><div class="slide__img" style="background-image: url(dist/images/about-backgroundptn2-1.webp)"></div></figure>
+          <figure class="slide__figure"><div class="slide__img" style="background-image: url(dist/images/about-background.webp)"></div></figure>
           <header class="slide__header">
             <div class="slide__title">
               <h2 class="title-line head-title head-title__about"><span><img src="dist/images/h2-about.svg" alt="About"></span></h2>
@@ -107,8 +108,7 @@
       <!-- Single Slide Service Section-->
       <section class="slide">
         <div class="slide__content">
-          <canvas id="service-canvas" class="slide__figure"></canvas>
-          <!-- <figure class="slide__figure"><div class="slide__img" style="background-image: url(dist/images/service-backround@2x.webp)"></div></figure> -->
+          <figure class="slide__figure"><canvas id="service-canvas" class="slide__img" style="background-image: url(dist/images/service-background.webp)"></canvas></figure>
           <header class="slide__header">
             <div class="slide__title">
               <h2 class="title-line head-title head-title__service"><span><img src="dist/images/title-service.svg" alt="Service"></span></h2>
@@ -123,11 +123,11 @@
       <!-- Single Slide Gallery Section-->
       <section class="slide">
         <div class="slide__content">
-          <figure class="slide__figure"><div class="slide__img" style="background-image: url(dist/images/works-backround@2x.webp)"></div></figure>
+          <figure class="slide__figure"><div class="slide__img" style="background-image: url(dist/images/gallery-background.webp)"></div></figure>
           <header class="slide__header">
             <div class="slide__title">
               <h2 class="title-line head-title head-title__gallery"><span><img src="dist/images/title-gallery.svg" alt="Gallery"></span></h2>
-              <p class="title-line head-text"><span>趣味で撮影した写真やPhotoshopで作った作品を掲載しています。※仕事とは関係ない初心者の趣味レベルのもの</span></p>
+              <p class="title-line head-text"><span>これまでのお仕事の中でお客様から掲載の許可を頂いているもののみを公開しています。※他趣味制作のものも掲載</span></p>
               <a href="/page-gallery.html" class="title-line page-link"><span><img src="dist/images/link.svg" alt="View More"></span></a>
             </div>
           </header>
@@ -138,7 +138,7 @@
       <!-- Single Slide Blog Section-->
       <section class="slide">
         <div class="slide__content">
-          <figure class="slide__figure"><div class="slide__img" style="background-image: url(dist/images/blog-backround@2x.webp)"></div></figure>
+          <figure class="slide__figure"><div class="slide__img" style="background-image: url(dist/images/blog-background.webp)"></div></figure>
           <header class="slide__header">
             <div class="slide__title">
               <h2 class="title-line head-title head-title__blog"><span><img src="dist/images/title-blog.svg" alt="Blog"></span></h2>
@@ -199,7 +199,7 @@
       <!-- Single Slide Contact Section-->
       <section class="slide">
         <div class="slide__content">
-          <figure class="slide__figure"><div class="slide__img" style="background-image: url(dist/images/contact-backround@2x.webp)"></div></figure>
+          <figure class="slide__figure"><div class="slide__img" style="background-image: url(dist/images/contact-background.webp)"></div></figure>
           <header class="slide__header">
             <div class="slide__title">
               <h2 class="title-line head-title head-title__contact"><span><img src="dist/images/title-contact.svg" alt="Contact"></span></h2>
@@ -269,6 +269,6 @@
 <!-- TOPページのみ読み込み -->
 <script src="src/js/main.js"></script>
 <!-- three読み込み -->
-<!-- <script src="src/js/onlyTop.js"></script> -->
+<script src="src/js/onlyTop.js"></script>
 </body>
 </html>

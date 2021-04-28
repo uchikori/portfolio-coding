@@ -501,7 +501,7 @@ a{
     }
     &.about{
         &:before{
-            background-image: url('../images/about-backgroundptn2-2.webp');
+            background-image: url('../images/about-background.webp');
             @include tab{
                 background-position: right -25rem bottom;
             }
@@ -509,17 +509,22 @@ a{
     } 
     &.service{
         &:before{
-            background-image: url('../images/service-backround@2x.webp');
+            background-image: url('../images/service-backround.webp');
         }
     }
     &.notes{
         &:before{
-            background-image: url('../images/service-backround@2x.webp');
+            background-image: url('../images/service-backround.webp');
         }
     }
     &.gallery{
         &:before{
-            background-image: url('../images/works-backround@2x.webp')
+            background-image: url('../images/gallery-background.webp')
+        }
+    }
+    &.single{
+        &:before{
+            background-image: url('../images/service-background.webp')
         }
     }
 }
