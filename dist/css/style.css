@@ -1748,6 +1748,10 @@ a {
   background-image: url("../images/service-background.webp");
 }
 
+.page-wrapper.contact:before {
+  background-image: url("../images/contact-background.webp");
+}
+
 .main-visual {
   width: 100vw;
   height: 100vh;
@@ -1812,6 +1816,11 @@ a {
 .main-visual__title .head-title__blog {
   width: 524.8px;
   width: 32.8rem;
+}
+
+.main-visual__title .head-title__contact {
+  width: 984.32px;
+  width: 61.52rem;
 }
 
 .main-visual__title .head-text {
@@ -3371,6 +3380,9 @@ footer small {
   }
   .main-visual__title .head-title__blog {
     width: 16.4rem;
+  }
+  .main-visual__title .head-title__contact {
+    width: 30.8rem;
   }
   .main-visual__title .head-title {
     margin-bottom: 2.7rem;

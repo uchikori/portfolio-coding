@@ -527,6 +527,11 @@ a{
             background-image: url('../images/service-background.webp')
         }
     }
+    &.contact{
+        &:before{
+            background-image: url('../images/contact-background.webp');
+        }
+    }
 }
 .main-visual{
     width: 100vw;
@@ -594,6 +599,12 @@ a{
                 width: 32.8rem;
                 @include sp{
                     width: 16.4rem;
+                }
+            }
+            &__contact{
+                width: 61.52rem;
+                @include sp{
+                    width: 30.8rem;
                 }
             }
             @include sp{
