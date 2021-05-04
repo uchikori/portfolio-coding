@@ -2449,6 +2449,125 @@ a {
   transition: right 0.3s ease;
 }
 
+.content .contact-form__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 64px;
+  margin-bottom: 4rem;
+}
+
+.content .contact-form__item:nth-child(6) {
+  margin-bottom: 128px;
+  margin-bottom: 8rem;
+}
+
+.content .contact-form__item.align-top {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.content .contact-form__item__label {
+  font-family: "Orbitron", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-size: 25.6px;
+  font-size: 1.6rem;
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 1;
+  text-align: right;
+  margin-right: 51.2px;
+  margin-right: 3.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.content .contact-form__item__label span {
+  color: red;
+}
+
+.content .contact-form .type-text {
+  height: 64px;
+  height: 4rem;
+  background-color: #ffffff;
+  padding: 0 25.6px;
+  padding: 0 1.6rem;
+  color: #333333;
+}
+
+.content .contact-form .type-email {
+  height: 64px;
+  height: 4rem;
+  background-color: #ffffff;
+  padding: 0 25.6px;
+  padding: 0 1.6rem;
+  color: #333333;
+}
+
+.content .contact-form .type-select {
+  height: 64px;
+  height: 4rem;
+  background-color: #ffffff;
+  padding: 0 25.6px;
+  padding: 0 1.6rem;
+  color: #333333;
+  position: relative;
+  background-image: url("../images/toggle-button.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.content .contact-form .type-textarea {
+  background-color: #ffffff;
+  padding: 19.2px 25.6px;
+  padding: 1.2rem 1.6rem;
+  color: #333333;
+}
+
+.content .contact-form .type-checkbox {
+  width: 25.6px;
+  width: 1.6rem;
+  height: 25.6px;
+  height: 1.6rem;
+}
+
+.content .contact-form .wpcf7-list-item-label {
+  font-size: 22.4px;
+  font-size: 1.4rem;
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 1;
+  display: inline-block;
+}
+
+.content .contact-form .contact-form__submit {
+  text-align: center;
+}
+
+.content .contact-form .submitbtn {
+  font-size: 64px;
+  font-size: 4rem;
+  color: #ffffff;
+  font-weight: normal;
+  padding: 35.2px 153.6px;
+  padding: 2.2rem 9.6rem;
+  font-family: "Orbitron", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  text-decoration: none;
+  text-align: center;
+}
+
+.content .contact-form .submitbtn:hover {
+  color: #D40A83;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
 .link-wrap {
   text-align: center;
 }
@@ -3146,6 +3265,18 @@ footer small {
   }
   .content .gallery-item__description {
     margin-bottom: 4.8rem;
+  }
+  .content .contact-form__item {
+    display: block;
+  }
+  .content .contact-form__item__label {
+    text-align: left;
+    display: block;
+    margin-right: 0;
+    margin-bottom: 1.6rem;
+  }
+  .content .contact-form .submitbtn {
+    font-size: 2rem;
   }
   .link-btn.contact {
     font-size: 2rem;
