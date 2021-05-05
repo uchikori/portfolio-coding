@@ -38,7 +38,6 @@ if(scrollOn){
     scrollAnimation();
 }
 
-
 /***
  * 
  * マウス追従カーソル
