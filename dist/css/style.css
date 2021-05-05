@@ -1744,11 +1744,15 @@ a {
   background-image: url("../images/gallery-background.webp");
 }
 
-.page-wrapper.single:before {
+.page-wrapper.page-single:before {
   background-image: url("../images/service-background.webp");
 }
 
 .page-wrapper.contact:before {
+  background-image: url("../images/contact-background.webp");
+}
+
+.page-wrapper.thanks:before {
   background-image: url("../images/contact-background.webp");
 }
 
@@ -2657,7 +2661,7 @@ footer small {
   line-height: 1.6rem;
 }
 
-#single .main-visual {
+.single .main-visual {
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -2665,13 +2669,13 @@ footer small {
   margin-bottom: -36.3rem;
 }
 
-#single .main-visual__inner {
+.single .main-visual__inner {
   margin: 0 auto;
   height: 100%;
   width: 1168px;
 }
 
-#single .main-visual__header {
+.single .main-visual__header {
   z-index: 9;
   height: 100%;
   display: -webkit-box;
@@ -2682,7 +2686,7 @@ footer small {
           align-items: center;
 }
 
-#single .main-visual__title .single-category {
+.single .main-visual__title .single-category {
   display: inline-block;
   font-size: 32px;
   font-size: 2rem;
@@ -2700,7 +2704,7 @@ footer small {
   text-decoration: none;
 }
 
-#single .main-visual__title .single-title {
+.single .main-visual__title .single-title {
   font-size: 76.8px;
   font-size: 4.8rem;
   color: #ffffff;
@@ -2713,7 +2717,7 @@ footer small {
   border: none;
 }
 
-#single .main-visual__title .single-en-title {
+.single .main-visual__title .single-en-title {
   display: block;
   font-size: 32px;
   font-size: 2rem;
@@ -3012,11 +3016,22 @@ footer small {
   height: 0.3rem;
 }
 
-#thanks .main-visual__inner {
+.thanks .p-canvas-webgl {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.thanks .main-visual {
+  margin-bottom: 0;
+}
+
+.thanks .main-visual__inner {
   text-align: center;
 }
 
-#thanks .main-visual__header {
+.thanks .main-visual__header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3024,13 +3039,38 @@ footer small {
           transform: translateX(0);
 }
 
-#thanks .main-visual .head-title {
+.thanks .main-visual .head-title {
   margin: 0 auto 88px auto;
   margin: 0 auto 5.5rem auto;
 }
 
-#thanks .main-visual .head-text {
+.thanks .main-visual .head-text {
   width: 100%;
+}
+
+.thanks .sns-block {
+  bottom: 16%;
+}
+
+.thanks .sns-block:before {
+  content: '';
+  position: absolute;
+  bottom: 185%;
+  left: 50%;
+  width: 1px;
+  height: 192px;
+  height: 12rem;
+  background-color: #ffffff;
+  -webkit-animation: scroll-lead 3s cubic-bezier(1, 0, 0, 1) infinite;
+          animation: scroll-lead 3s cubic-bezier(1, 0, 0, 1) infinite;
+}
+
+.thanks footer {
+  position: fixed;
+  bottom: 0%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .main-visual-thanks {
@@ -3338,23 +3378,23 @@ footer small {
   .link-btn.contact:before {
     height: 18rem;
   }
-  #single .main-visual {
+  .single .main-visual {
     margin-bottom: -16.5rem;
   }
-  #single .main-visual__inner {
+  .single .main-visual__inner {
     width: 84vw;
   }
-  #single .main-visual__title .single-category {
+  .single .main-visual__title .single-category {
     font-size: 1.4rem;
     padding: 0.6rem 2.7rem;
     margin-bottom: 1.6rem;
   }
-  #single .main-visual__title .single-title {
+  .single .main-visual__title .single-title {
     font-size: 3.2rem;
     line-height: 1.5;
     margin-bottom: 1.6rem;
   }
-  #single .main-visual__title .single-en-title {
+  .single .main-visual__title .single-en-title {
     font-size: 1.4rem;
     line-height: 2.6;
   }
@@ -3466,6 +3506,9 @@ footer small {
     right: 3.9375rem;
     height: 1.5625rem;
     top: -0.25rem;
+  }
+  .thanks .sns-block:before {
+    height: 18rem;
   }
 }
 
@@ -3600,7 +3643,7 @@ footer small {
   .content__inner {
     width: 1168px;
   }
-  #single .main-visual__inner {
+  .single .main-visual__inner {
     width: 1168px;
   }
 }
@@ -3609,7 +3652,7 @@ footer small {
   .content__inner {
     width: 88vw;
   }
-  #single .main-visual__inner {
+  .single .main-visual__inner {
     width: 88vw;
   }
 }

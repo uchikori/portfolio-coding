@@ -522,12 +522,17 @@ a{
             background-image: url('../images/gallery-background.webp')
         }
     }
-    &.single{
+    &.page-single{
         &:before{
             background-image: url('../images/service-background.webp')
         }
     }
     &.contact{
+        &:before{
+            background-image: url('../images/contact-background.webp');
+        }
+    }
+    &.thanks{
         &:before{
             background-image: url('../images/contact-background.webp');
         }
@@ -1369,7 +1374,7 @@ footer{
 //-------------------------------
 //  Single
 //-------------------------------
-#single{
+.single{
     .main-visual{
         width: 100vw;
         height: 100vh;
@@ -1789,8 +1794,15 @@ footer{
 //-------------------------------
 //  Thanks
 //-------------------------------
-#thanks{
+.thanks{
+    .p-canvas-webgl{
+        position: fixed;
+        z-index: -1;
+        top: 0; 
+        left: 0;
+    }
     .main-visual{
+        margin-bottom: 0;
         &__inner{
             text-align: center;
         }
@@ -1804,6 +1816,28 @@ footer{
         .head-text{
             width: 100%;
         }
+    }
+    .sns-block{
+        bottom: 16%;
+        &:before{
+            content: '';
+            position: absolute;
+            bottom: 185%;
+            left: 50%;
+            width: 1px;
+            height: 12rem;
+            background-color: $color-white;
+            animation: scroll-lead 3s cubic-bezier(1, 0, 0, 1) infinite;
+            @include tab{
+                height: 18rem;
+            }
+        }
+    }
+    footer{
+        position: fixed;
+        bottom: 0%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 .main-visual-thanks{
