@@ -13,8 +13,11 @@ const swiper = document.querySelector('.swiper-container');
 const title = document.querySelectorAll('.accordion-title');
 const svg = document.getElementById('svg');
 const scrollOn = document.querySelectorAll('.content__block');
+const gMenu = document.querySelector('.js-gMenu');
+console.log(gMenu);
 let paginationCurrent = document.querySelector('.page-current');
 let paginationTotal = document.querySelector('.page-total');
+const pageWrap = document.querySelector('.page-wrapper');
 
 mouseStorker();
 mouseHover();
@@ -34,8 +37,11 @@ if(title){
 if(svg){
     svgAnimation();
 }
-if(scrollOn){
-    scrollAnimation();
+// if(scrollOn){
+//     scrollAnimation();
+// }
+if(pageWrap){
+    scrollParallax();
 }
 
 /***
@@ -117,11 +123,13 @@ function menuOpen(){
     //メニューボタンがクリックされたとき
     listMenu.addEventListener('click', function(){
         //activeクラスの付与と削除を行う
-        container.classList.toggle('active');
+        // container.classList.toggle('active');
         listMenu.classList.toggle('menu-active');
+        gMenu.classList.toggle('menu-open');
+        document.body.classList.toggle('fixed');
     
         //メニューが開いた状態でのスクロール禁止
-        if(container.classList.contains('active')){
+        if(document.body.classList.contains('fixed')){
             // スクロール禁止(SP)
             document.addEventListener('touchmove', noScroll, { passive: false });
             // スクロール禁止(PC)
@@ -496,21 +504,21 @@ function svgAnimation(){
  * スクロールアニメーション
  * 
  */
-function scrollAnimation(){
-    scrollOn.forEach(function(item){
-        gsap.to(item, {
-            scrollTrigger:{
-                trigger: item,
-                start: 'top bottom-=25%',
-                end:'center center',
-                // markers: true,
-                onEnter: function(){
-                    item.classList.add('scroll-on');
-                }
-            }, 
-        }); 
-    });
-}
+// function scrollAnimation(){
+//     scrollOn.forEach(function(item){
+//         gsap.to(item, {
+//             scrollTrigger:{
+//                 trigger: item,
+//                 start: 'top bottom-=25%',
+//                 end:'center center',
+//                 // markers: true,
+//                 onEnter: function(){
+//                     item.classList.add('scroll-on');
+//                 }
+//             }, 
+//         }); 
+//     });
+// }
 
 /**
  * 
@@ -535,6 +543,32 @@ function mouseHover(){
             console.log(index);
             let imageIndex = galleryImage[index];
             imageIndex.classList.remove('is-hover');
+        }
+    });
+}
+
+function scrollParallax(){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollToPlugin);
+
+    let container = document.querySelector('.scroll-container');
+    let height;
+
+    function setHeight(){
+        height = container.clientHeight;
+        document.body.style.height = `${height}px`;
+    }
+
+    ScrollTrigger.addEventListener('refreshInit', setHeight);
+    gsap.to(container, {
+        y: () => -(height - document.documentElement.clientHeight),
+        ease: 'none',
+        scrollTrigger: {
+            target: document.body,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1,
+            invalidateOnRefresh: true
         }
     });
 }
