@@ -1,15 +1,7 @@
-// .cursor,.follower{
-//     border-radius: 50%;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     cursor: none;
-//     pointer-events: none;
-// }
 .cursor{
     position: absolute;
     transform: scale(0.8);
-    z-index: 1;
+    z-index: 1001;
     width: 8px;
     height: 8px;
     border-radius: 100%;
@@ -28,7 +20,7 @@
 .follower{
     position: absolute;
     transform: translate(4px, 4px);
-    z-index: 1;
+    z-index: 1000;
     width: 40px;
     height: 40px;
     border-radius: 100%;
