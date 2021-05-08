@@ -257,10 +257,7 @@
     &__swiper{
         width: 90.4rem;
         margin-left: 15.8rem !important;
-        // transform: translate3d(0, 140%, 0);
-        // opacity: 0;
-        // transition: transform 0.2s ease, opacity 0.8s ease;
-        // overflow-y: hidden;
+        display: flex;
         @include tab{
             display: none;
         }
@@ -269,9 +266,6 @@
             color: white;
             padding: 1.6rem;
             margin-right: 3.2rem;
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
             gap: 20px;
             border-radius: 0.8rem;
             backdrop-filter: blur(8px);

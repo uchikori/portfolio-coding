@@ -172,6 +172,25 @@ a{
     border-bottom: 2px rgba(40,40,40,0.35) solid;
     border-right: 2px rgba(40,40,40,0.35) solid;
 }
+//-------------------------------
+//  Loading-splash
+//-------------------------------
+.splash-bg{
+    display: none;
+    body.appear &{
+        display: block;
+        content: "";
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        transform: scaleX(0);
+        background-color: $color-trans-bg;
+        animation: PageAnime 1.2s ease-in-out forwards;
+    }
+}
 
 //-------------------------------
 //  Humberger-menu
@@ -249,8 +268,13 @@ a{
     width: 100vw;
     // transform-style: preserve-3d;
     overflow: hidden;
+    opacity: 0;
     // background-color:$color-border;
     // position: relative;
+    body.appear &{
+        animation: PageAnimeAppear 1s 0.8s forwards;
+        opacity: 0;
+    }
     &.about{
         background-image: url('../images/about-backround@2x.webp');
         background-repeat: no-repeat;
@@ -413,6 +437,7 @@ a{
             left: 100%;
             top: 10%;
             transform: translate3d(calc(-100% - 6vw),-30%,0) translate3d(0,20px,0);
+            box-shadow: 0 0 1.6rem $color-border, 0 0 1.6rem $color-border, 0 0 1.6rem $color-border;
             @include tab{
                 width: 28rem;
                 height: 15.7rem;
@@ -420,11 +445,14 @@ a{
             }
         }
         .menu-open &{
-           animation: appear 1s forwards ease var(--i);
+           animation: appear 1.6s forwards ease var(--i);
+        }
+        .menu-close &{
+            animation: hide 1s forwards ease;
         }
     }
-    &.menu-open{
-        display: block;
+    &.menu-close{
+        opacity: 1;
     }
     .marquee{
         position: absolute;
@@ -472,14 +500,14 @@ a{
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
-    background: $color-border;
+    background: $color-trans-bg;
     transform: scale(0);
     right: -5rem;
-    top: calc(50% - 5rem);
-    transition: transform 0.8s ease;
+    top: -5rem;
+    transition: transform 1.6s cubic-bezier(1.000, 0.000, 0.440, 0.995);
     &.circleActive{
         transform: scale(50);
-        transition: transform 0.8s ease;
+        transition: transform 1.6s cubic-bezier(1.000, 0.000, 0.440, 0.995);
     }
 }
 
@@ -2011,8 +2039,6 @@ footer{
         display: inline-block;
         animation: noise-3 1s linear infinite;
     }
-      
-
 }
 
 .scroll-container{

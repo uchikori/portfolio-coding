@@ -17,7 +17,8 @@
   </style>
 
 </head>
-<body class="thanks">
+<body class="notFound">
+  <div class="splash-bg"></div>
   <div class="cursor js-cursor"></div>
   <div class="follower js-follower"></div>
   <main role="main" class="container">
@@ -37,37 +38,155 @@
       </div>
     </div>
     <!-- //Humberger-menu -->
+    <!-- global-navi -->
+    <nav class="g-menu js-gMenu">
+      <div class="g-menu__item" style="--i: 0.9s">
+        <a href="index.html" class="g-menu__item-link">home</a>
+        <div class="g-menu__item-img">
+          <img src="dist/images/home-firstview.webp" alt=""/>
+        </div>
+        <div class="marquee">
+          <div class="marquee__inner" aria-hidden="true">
+            <span>home</span>
+            <span>home</span>
+            <span>home</span>
+            <span>home</span>
+            <span>home</span>
+            <span>home</span>
+            <span>home</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-menu__item" style="--i: 1.0s">
+        <a href="page-about.html" class="g-menu__item-link">about</a>
+        <div class="g-menu__item-img">
+          <img src="dist/images/about-firstView.webp" alt=""/>
+        </div>
+        <div class="marquee">
+          <div class="marquee__inner" aria-hidden="true">
+            <span>about</span>
+            <span>about</span>
+            <span>about</span>
+            <span>about</span>
+            <span>about</span>
+            <span>about</span>
+            <span>about</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-menu__item" style="--i: 1.1s">
+        <a href="page-service.html" class="g-menu__item-link">service</a>
+        <div class="g-menu__item-img">
+          <img src="dist/images/service-firstView.webp" alt=""/>
+        </div>
+        <div class="marquee">
+          <div class="marquee__inner" aria-hidden="true">
+            <span>service</span>
+            <span>service</span>
+            <span>service</span>
+            <span>service</span>
+            <span>service</span>
+            <span>service</span>
+            <span>service</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-menu__item" style="--i: 1.2s">
+        <a href="page-notes.html" class="g-menu__item-link">notes</a>
+        <div class="g-menu__item-img">
+        <img src="dist/images/notes-firstView.webp" alt=""/>
+      </div>
+        <div class="marquee">
+          <div class="marquee__inner" aria-hidden="true">
+            <span>notes</span>
+            <span>notes</span>
+            <span>notes</span>
+            <span>notes</span>
+            <span>notes</span>
+            <span>notes</span>
+            <span>notes</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-menu__item" style="--i: 1.3s">
+        <a href="page-gallery.html" class="g-menu__item-link">gallery</a>
+        <div class="g-menu__item-img">
+          <img src="dist/images/gallery-firstView.webp" alt=""/>
+        </div>
+        <div class="marquee">
+          <div class="marquee__inner" aria-hidden="true">
+            <span>gallery</span>
+            <span>gallery</span>
+            <span>gallery</span>
+            <span>gallery</span>
+            <span>gallery</span>
+            <span>gallery</span>
+            <span>gallery</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-menu__item" style="--i: 1.4s">
+        <a href="https://blog.uchiwa-design.net" class="g-menu__item-link">blog</a>
+        <div class="g-menu__item-img">
+          <img src="dist/images/blog-first-view.webp" alt=""/>
+        </div>
+        <div class="marquee">
+          <div class="marquee__inner" aria-hidden="true">
+            <span>blog</span>
+            <span>blog</span>
+            <span>blog</span>
+            <span>blog</span>
+            <span>blog</span>
+            <span>blog</span>
+            <span>blog</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-menu__item" style="--i: 1.5s">
+        <a href="page-contact.html" class="g-menu__item-link">Contact</a>
+        <div class="g-menu__item-img">
+          <img src="dist/images/contact-firstView.webp" alt=""/>
+        </div>
+        <div class="marquee">
+          <div class="marquee__inner" aria-hidden="true">
+            <span>Contact</span>
+            <span>Contact</span>
+            <span>Contact</span>
+            <span>Contact</span>
+            <span>Contact</span>
+            <span>Contact</span>
+            <span>Contact</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="circle-bg"></div>
+    <!-- global-navi -->
 
-    <section id="thanks" class="page-wrapper thanks">
+    <section id="thanks" class="page-wrapper notFound">
+      <figure class="background-movie">
+        <video src="dist/images/404-background.mp4" loop autoplay muted playsinline></video>
+      </figure>
       <!-- Main-visual-->
       <section class="main-visual">
         <div class="main-visual__inner">
           <header class="main-visual__header">
             <div class="main-visual__title">
-              <h1 class="title-line head-title head-title__thanks"><span><img src="dist/images/title-thanks.svg" alt="Thanks"></span></h1>
-              <p class="title-line head-text"><span>この度はお問い合わせ頂きありがとうございます。<br>お問い合わせ内容により、返信にお時間を頂く場合もありますがご了承ください。</span></p>
+              <h1 class="title-line head-title head-title__notFound error"><span><img src="dist/images/title-notfound.svg" alt="404 not found"></span></h1>
+              <p class="title-line head-text"><span class="info">お探しのページは見つかりませんでした。</span></p>
             </div>
           </header>
-          <section class="sns-block">
-            <a href="https://twitter.com/KoriUchiwa" class="sns-icon" target="_blank"  rel="noopener noreferrer">
-              <img src="dist/images/icon-twitter.svg" alt="twitter">
-            </a>
-            <a href="https://www.instagram.com/uchiwa_cs/" class="sns-icon" target="_blank"  rel="noopener noreferrer">
-              <img src="dist/images/icon-facebook.svg" alt="facebook">
-            </a>
-            <a href="https://www.facebook.com/WEBdesigner.uchiwa" class="sns-icon" target="_blank"  rel="noopener noreferrer">
-              <img src="dist/images/icon-instagram.svg" alt="instagram">
-            </a>
-            <a href="https://blog.uchiwa-design.net" class="sns-icon" target="_blank"  rel="noopener noreferrer">
-              <img src="dist/images/icon-blog.svg" alt="blog">
-            </a>
-          </section>
         </div>
       </section>
       <!-- //Main-visual -->
+      <!-- footer copyright -->
+      <footer>
+        <small>&copy;UCHIWA Creative Studio.all rights reserved.</small>
+      </footer>
+      <!-- //footer copyright -->
     </section>
 
-    <div class="links">
+    <!-- <div class="links">
       <ul class="menu">
         <li class="menu-item active">
           <a href="front-page.html" style="--i: 0.1s">HOME</a>
@@ -88,13 +207,7 @@
           <a href="page-contact.html" style="--i: 0.6s">CONTACT</a>
         </li>
       </ul>
-    </div>
-    <!-- footer copyright -->
-    <footer>
-      <small>&copy;UCHIWA Creative Studio.all rights reserved.</small>
-    </footer>
-    <!-- //footer copyright -->
-    
+    </div> -->
 
   </main>
 <!-- three.js読み込み -->
@@ -108,6 +221,7 @@
 <!-- GSAPとScrollTriggerの読み込み -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollToPlugin.min.js"></script>
 <!-- メインのJavascriptファイルの読み込み -->
 <script src="src/js/main.js"></script>
 </body>

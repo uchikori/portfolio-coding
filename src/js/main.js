@@ -15,10 +15,9 @@ const svg = document.getElementById('svg');
 const scrollOn = document.querySelectorAll('.content__block');
 const gMenu = document.querySelector('.js-gMenu');
 const circleBg = document.querySelector('.circle-bg');
-console.log(gMenu);
 let paginationCurrent = document.querySelector('.page-current');
 let paginationTotal = document.querySelector('.page-total');
-const pageWrap = document.querySelector('.page-wrapper');
+const scrollContainer = document.querySelector('.scroll-container');
 
 mouseStorker();
 mouseHover();
@@ -38,10 +37,19 @@ if(svg){
 // if(scrollOn){
 //     scrollAnimation();
 // }
-if(pageWrap){
+if(scrollContainer){
     scrollParallax();
 }
 
+
+/**
+ * 
+ * ローディングスプラッシュアニメーション
+ * 
+ */
+window.addEventListener('load', function(){
+    document.body.classList.add('appear');
+});
 /***
  * 
  * マウス追従カーソル
@@ -51,8 +59,8 @@ function mouseStorker(){
     if(!navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)){
         const cursor = document.querySelector(".js-cursor");
         const follower = document.querySelector(".js-follower");
-        const target = document.querySelectorAll("a");
-        const menu = document.querySelector('.list-menu');
+        const link = document.querySelectorAll("a");
+        const target = document.querySelectorAll('.hoverTarget');
         console.log(target);
         console.log(cursor);
         console.log(follower);
@@ -90,6 +98,14 @@ function mouseStorker(){
         });
     
         // マウスオーバー時の処理
+        link.forEach(function(item){
+            item.onmouseover = function(){
+                follower.classList.add('is-hover');
+            }
+            item.onmouseout = function(){
+                follower.classList.remove('is-hover');
+            }
+        });
         target.forEach(function(item){
             item.onmouseover = function(){
                 follower.classList.add('is-hover');
@@ -98,14 +114,7 @@ function mouseStorker(){
                 follower.classList.remove('is-hover');
             }
         });
-        menu.onmouseover = function(){
-            follower.classList.add('is-hover');
-        }
-        menu.onmouseout = function(){
-            follower.classList.remove('is-hover');
-        }
     }
-
 }
 
 /**
@@ -123,7 +132,19 @@ function menuOpen(){
         //activeクラスの付与と削除を行う
         // container.classList.toggle('active');
         listMenu.classList.toggle('menu-active');
-        gMenu.classList.toggle('menu-open');
+        // gMenu.classList.toggle('menu-open');
+        if(gMenu.classList.contains('menu-open')){
+            gMenu.classList.add('menu-close');
+            gMenu.classList.remove('menu-open');
+            setTimeout(function(){
+                gMenu.style.display = 'none';
+            }, 1700);
+        } else {
+            gMenu.classList.add('menu-open');
+            gMenu.classList.remove('menu-close');
+            gMenu.style.display = 'block';
+        }
+        
         circleBg.classList.toggle('circleActive');
         document.body.classList.toggle('fixed');
     
@@ -550,16 +571,16 @@ function scrollParallax(){
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
 
-    let container = document.querySelector('.scroll-container');
+    // let container = document.querySelector('.scroll-container');
     let height;
 
     function setHeight(){
-        height = container.clientHeight;
+        height = scrollContainer.clientHeight;
         document.body.style.height = `${height}px`;
     }
 
     ScrollTrigger.addEventListener('refreshInit', setHeight);
-    gsap.to(container, {
+    gsap.to(scrollContainer, {
         y: () => -(height - document.documentElement.clientHeight),
         ease: 'none',
         scrollTrigger: {

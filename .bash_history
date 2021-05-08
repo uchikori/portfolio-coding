@@ -180,3 +180,17 @@ git checkout master
 git add *
 git commit -m[]
 git push origin master
+git add *
+git commit -m[]
+git push origin master
+git status
+git add *
+git commit -m[]
+git status
+git branch
+git add
+git add all
+git add *
+git add -A
+git commit -m[]
+git push origin master
