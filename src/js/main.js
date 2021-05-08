@@ -14,6 +14,7 @@ const title = document.querySelectorAll('.accordion-title');
 const svg = document.getElementById('svg');
 const scrollOn = document.querySelectorAll('.content__block');
 const gMenu = document.querySelector('.js-gMenu');
+const circleBg = document.querySelector('.circle-bg');
 console.log(gMenu);
 let paginationCurrent = document.querySelector('.page-current');
 let paginationTotal = document.querySelector('.page-total');
@@ -27,9 +28,6 @@ if(canvas){
 }
 if(slides){
     sliceSlider();
-}
-if(swiper){
-    swiperToggle();
 }
 if(title){
     accordion();
@@ -126,6 +124,7 @@ function menuOpen(){
         // container.classList.toggle('active');
         listMenu.classList.toggle('menu-active');
         gMenu.classList.toggle('menu-open');
+        circleBg.classList.toggle('circleActive');
         document.body.classList.toggle('fixed');
     
         //メニューが開いた状態でのスクロール禁止
@@ -426,34 +425,34 @@ function sliceSlider(){
  * PCサイズのみブログコンテンツをスライダー形式で表示
  * 
  *  */
-function swiperToggle(){
-    let swiper;
-    jQuery(window).on('load resize', function(){
-        let w = jQuery(window).width();
-        if(w > 768){
-            if(swiper){
-                return;
-            } else {
-                swiper = new Swiper('.swiper-container', {
-                    // loop: true,
-                    // spaceBetween: 32,
-                    slidesPerView: 3,
-                    // slidesPerView: 1,
-                    speed: 1000,
-                    // effect: 'cube',
-                    autoplay:{
-                        delay: 5000,
-                    }
-                });
-            }
-        } else {
-            if(swiper){
-                swiper.destroy();
-                swiper = undefined;
-            }
-        }
-    });
-}
+// function swiperToggle(){
+//     let swiper;
+//     jQuery(window).on('load resize', function(){
+//         let w = jQuery(window).width();
+//         if(w > 768){
+//             if(swiper){
+//                 return;
+//             } else {
+//                 swiper = new Swiper('.swiper-container', {
+//                     // loop: true,
+//                     // spaceBetween: 32,
+//                     slidesPerView: 3,
+//                     // slidesPerView: 1,
+//                     speed: 1000,
+//                     // effect: 'cube',
+//                     autoplay:{
+//                         delay: 5000,
+//                     }
+//                 });
+//             }
+//         } else {
+//             if(swiper){
+//                 swiper.destroy();
+//                 swiper = undefined;
+//             }
+//         }
+//     });
+// }
 
 /**
  * 

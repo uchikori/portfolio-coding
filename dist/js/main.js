@@ -28,6 +28,7 @@ var title = document.querySelectorAll('.accordion-title');
 var svg = document.getElementById('svg');
 var scrollOn = document.querySelectorAll('.content__block');
 var gMenu = document.querySelector('.js-gMenu');
+var circleBg = document.querySelector('.circle-bg');
 console.log(gMenu);
 var paginationCurrent = document.querySelector('.page-current');
 var paginationTotal = document.querySelector('.page-total');
@@ -42,10 +43,6 @@ if (canvas) {
 
 if (slides) {
   sliceSlider();
-}
-
-if (swiper) {
-  swiperToggle();
 }
 
 if (title) {
@@ -144,6 +141,7 @@ function menuOpen() {
     // container.classList.toggle('active');
     listMenu.classList.toggle('menu-active');
     gMenu.classList.toggle('menu-open');
+    circleBg.classList.toggle('circleActive');
     document.body.classList.toggle('fixed'); //メニューが開いた状態でのスクロール禁止
 
     if (document.body.classList.contains('fixed')) {
@@ -448,37 +446,35 @@ function sliceSlider() {
  * PCサイズのみブログコンテンツをスライダー形式で表示
  * 
  *  */
+// function swiperToggle(){
+//     let swiper;
+//     jQuery(window).on('load resize', function(){
+//         let w = jQuery(window).width();
+//         if(w > 768){
+//             if(swiper){
+//                 return;
+//             } else {
+//                 swiper = new Swiper('.swiper-container', {
+//                     // loop: true,
+//                     // spaceBetween: 32,
+//                     slidesPerView: 3,
+//                     // slidesPerView: 1,
+//                     speed: 1000,
+//                     // effect: 'cube',
+//                     autoplay:{
+//                         delay: 5000,
+//                     }
+//                 });
+//             }
+//         } else {
+//             if(swiper){
+//                 swiper.destroy();
+//                 swiper = undefined;
+//             }
+//         }
+//     });
+// }
 
-
-function swiperToggle() {
-  var swiper;
-  jQuery(window).on('load resize', function () {
-    var w = jQuery(window).width();
-
-    if (w > 768) {
-      if (swiper) {
-        return;
-      } else {
-        swiper = new Swiper('.swiper-container', {
-          // loop: true,
-          // spaceBetween: 32,
-          slidesPerView: 3,
-          // slidesPerView: 1,
-          speed: 1000,
-          // effect: 'cube',
-          autoplay: {
-            delay: 5000
-          }
-        });
-      }
-    } else {
-      if (swiper) {
-        swiper.destroy();
-        swiper = undefined;
-      }
-    }
-  });
-}
 /**
  * 
  * サービスページアコーディオン 

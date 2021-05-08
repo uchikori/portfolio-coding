@@ -518,8 +518,8 @@ template {
 @-webkit-keyframes appear {
   from {
     opacity: 0;
-    -webkit-transform: translateX(35%);
-            transform: translateX(35%);
+    -webkit-transform: translateX(20%);
+            transform: translateX(20%);
   }
   to {
     opacity: 1;
@@ -531,8 +531,8 @@ template {
 @keyframes appear {
   from {
     opacity: 0;
-    -webkit-transform: translateX(35%);
-            transform: translateX(35%);
+    -webkit-transform: translateX(20%);
+            transform: translateX(20%);
   }
   to {
     opacity: 1;
@@ -1190,7 +1190,6 @@ a {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background-color: #2E2E46;
   counter-reset: menu;
   padding: 12vh 0;
   --marquee-width: 100%;
@@ -1199,13 +1198,6 @@ a {
   --move-final: calc(-50% + var(--offset));
   --item-font-size: 10vw;
   display: none;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  opacity: 0;
-  -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-  transition: opacity 1s ease, -webkit-transform 1s ease;
-  transition: transform 1s ease, opacity 1s ease;
-  transition: transform 1s ease, opacity 1s ease, -webkit-transform 1s ease;
 }
 
 .g-menu__item {
@@ -1217,6 +1209,7 @@ a {
   font-weight: 900;
   font-family: "Orbitron", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   text-transform: uppercase;
+  opacity: 0;
 }
 
 .g-menu__item-link {
@@ -1269,15 +1262,13 @@ a {
           transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
 }
 
+.menu-open .g-menu__item {
+  -webkit-animation: appear 1s forwards ease var(--i);
+          animation: appear 1s forwards ease var(--i);
+}
+
 .g-menu.menu-open {
   display: block;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  opacity: 1;
-  -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-  transition: opacity 1s ease, -webkit-transform 1s ease;
-  transition: transform 1s ease, opacity 1s ease;
-  transition: transform 1s ease, opacity 1s ease, -webkit-transform 1s ease;
 }
 
 .g-menu .marquee {
@@ -1336,6 +1327,35 @@ a {
   opacity: 1;
   -webkit-transition-duration: 0.4s;
           transition-duration: 0.4s;
+}
+
+.circle-bg {
+  position: fixed;
+  z-index: 10;
+  width: 160px;
+  width: 10rem;
+  height: 160px;
+  height: 10rem;
+  border-radius: 50%;
+  background: #2E2E46;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  right: -80px;
+  right: -5rem;
+  top: calc(50% - 5rem);
+  -webkit-transition: -webkit-transform 0.8s ease;
+  transition: -webkit-transform 0.8s ease;
+  transition: transform 0.8s ease;
+  transition: transform 0.8s ease, -webkit-transform 0.8s ease;
+}
+
+.circle-bg.circleActive {
+  -webkit-transform: scale(50);
+          transform: scale(50);
+  -webkit-transition: -webkit-transform 0.8s ease;
+  transition: -webkit-transform 0.8s ease;
+  transition: transform 0.8s ease;
+  transition: transform 0.8s ease, -webkit-transform 0.8s ease;
 }
 
 .scroll-on {
