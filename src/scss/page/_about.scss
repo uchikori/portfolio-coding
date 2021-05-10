@@ -1,0 +1,56 @@
+&.about{
+    &:before{
+        background-image: url('../images/about-background.webp');
+        @include tab{
+            background-position: right -25rem bottom;
+        }
+    }
+    .block-table{
+        table{
+            width: 100%;
+            tr{
+                padding: 1.55rem 1rem;
+                display: flex;
+                border-top: dashed 1px #aeaeae;
+                align-items: center;
+                @include tab{
+                    padding: 1.55rem 0.8rem;
+                }
+                &:last-child{
+                    border-bottom: dashed 1px #aeaeae;
+                }
+                td{
+                    @include font-style(1.6rem, $color-white, normal);
+                    line-height: 1;
+                    display: inline-block;
+                    @include tab{
+                        font-size: 1.2rem;
+                        line-height: 2.4rem;
+                    }
+                    span{
+                        @include font-style(1.2rem, $color-white, normal);
+                        @include tab{
+                            font-size: 1.2rem;
+                        }
+                    }
+                    &:nth-child(1){
+                        width: 29%;
+                        font-size: 1.8rem;
+                        line-height: 1;
+                        @include tab{
+                            font-size: 1.4rem;
+                            width: 38.5%;
+                        }
+                    }
+                    &:nth-child(2){
+                        width: 71%;
+                        @include tab{
+                            width: 61.5%;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+} 

@@ -14,3 +14,10 @@ $ease-cb-2: cubic-bezier(.19,1,.22,1);
 $ease-cb-3: cubic-bezier(.77,0,.175,1);
 $ease-cb-4: cubic-bezier(.99,1,.92,1);
 $ease-cb-5: cubic-bezier(0.960, 0.165, 0.000, 0.655);
+
+/*font-size, font-color, line-height指定*/
+@mixin font-style($font-size, $font-color, $font-weight){
+    font-size: $font-size;
+    color: $font-color;
+    font-weight: $font-weight;
+}

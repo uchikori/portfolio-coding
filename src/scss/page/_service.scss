@@ -1,0 +1,137 @@
+&.service{
+    &:before{
+        background-image: url('../images/service-backround.webp');
+    }
+    .info-graphic{
+        .cls-1{
+            fill:none;
+            stroke: #ffffff;
+
+        }
+        .cls-2{
+            fill: none;
+            // stroke: #ffffff;
+            &.fill{
+                fill-opacity: 0;
+                fill: $color-white;
+                transition: fill-opacity 0.8s ease;
+            }
+        }
+        .draw{
+            .fill{
+                fill-opacity: 1;
+            }
+        }
+        @include sp{
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 96vw;
+            height: auto;
+        }
+    }
+    .accordion-item{
+        width: 100%;
+        border-bottom: 1px solid $color-white;
+        .accordion-title{
+            padding: 2.4rem 0;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            @include tab{
+                padding: 1.6rem 0;
+            }
+            &__service{
+                width: 33.5rem;
+                @include tab{
+                    width: 16.9rem;
+                }
+            }
+            .toggle-btn{
+                width: 4.8rem;
+                height: 4.8rem;
+                background: transparent;
+                position: relative;
+                @include tab{
+                    width: 2rem;
+                    height: 2rem;
+                }
+                &:after{
+                    content: '';
+                    display: block;
+                    width: 4.8rem;
+                    height: 0.4rem;
+                    background-color: $color-white;
+                    position: absolute;
+                    top: 50%;
+                    transform: rotateZ(90deg);
+                    transition: transform 0.5s ease;
+                    @include tab{
+                        width: 2rem;
+                        height: 0.2rem;
+                    }
+                }
+                span{
+                    display: block;
+                    width: 4.8rem;
+                    height: 0.4rem;
+                    background-color: $color-white;
+                    position: absolute;
+                    top: 50%;
+                    transition: opacity 0.5s ease;
+                    opacity: 1;
+                    @include tab{
+                        width: 2rem;
+                        height: 0.2rem;
+                    }
+                }
+            }
+        }
+        .accordion-text{
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            &.is-open{
+                max-height: 100vh;
+                opacity: 1;
+                transition: max-height 0.5s ease, opacity 0.5s ease;
+            }
+        }
+        .is-active{
+            .toggle-btn{
+                &:after{
+                    transform: rotateZ(0deg);
+                    transition: transform 0.3s ease;
+                }
+                span{
+                    opacity: 0;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+    }
+    .service-icon{
+        @include tab{
+            width: 26.8rem;
+            margin: 0 auto 2.4rem auto;
+        }
+    }
+    .title-svgImg{
+        margin-bottom: 3.2rem;
+        @include tab{
+            margin: 0 auto 1.8rem auto;
+        }
+        &.writing{
+            width: 15.7rem;
+        }
+        &.server{
+            width: 12.6rem;
+        }
+        &.photo{
+            width: 10.8rem;
+        }
+    }
+}

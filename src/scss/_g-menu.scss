@@ -1,0 +1,182 @@
+.container{
+    width: 100vw;
+    // transform-style: preserve-3d;
+    overflow: hidden;
+    opacity: 0;
+    // background-color:$color-border;
+    // position: relative;
+    body.appear &{
+        animation: PageAnimeAppear 1s 0.8s forwards;
+        opacity: 0;
+    }
+    &.about{
+        background-image: url('../images/about-backround@2x.webp');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    canvas{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+    &.service{
+        background-image: url('../images/service-backround@2x.webp');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    &.notes{
+        background-image: url('../images/service-backround@2x.webp');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
+.g-menu{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 100;
+    user-select: none;
+    // background-color: $color-border;
+    counter-reset: menu;
+    padding: 12vh 0;
+    --marquee-width: 100%;
+	--offset: 20vw;
+	--move-initial: calc(-25% + var(--offset));
+	--move-final: calc(-50% + var(--offset));
+	--item-font-size: 10vw;
+    display: none;
+    @include tab{
+        padding: 8vh 0;
+    }
+    &__item{
+        position: relative;
+        padding: 1.6vh 5vw;
+        @include font-style(6.8rem, $color-white, 900);
+        font-family: $font-orbit;
+        text-transform: uppercase;
+        opacity: 0;
+        @include tab{
+            font-size: 4rem;
+        }
+        &-link{
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            text-stroke: 1px $color-white;
+            -webkit-text-stroke: 1px $color-white;
+            color: transparent;
+            transition: opacity 0.5s ease;
+            padding: 0 4.8rem;
+            @include tab{
+                padding: 0 3.2rem;
+            }
+            &:before{
+                counter-increment: menu;
+                content: "0"counter(menu);
+                position: absolute;
+                bottom: 56%;
+                left: 0;
+                pointer-events: none;
+                @include font-style(2rem, $color-white, normal);
+                font-family: $font-orbit;
+                @include tab{
+                    font-size: 1.2rem;
+                }
+            }
+            &:hover{
+                transition-duration: 0.1s;
+                opacity: 0;
+            }
+        }
+        &-img{
+            display: block;
+            pointer-events: none;
+            position: absolute;
+            width: 50rem;
+            height: 28rem;
+            max-height:28rem;
+            opacity: 0;
+            left: 100%;
+            top: 10%;
+            transform: translate3d(calc(-100% - 6vw),-30%,0) translate3d(0,20px,0);
+            box-shadow: 0 0 1.6rem $color-border, 0 0 1.6rem $color-border, 0 0 1.6rem $color-border;
+            @include tab{
+                width: 28rem;
+                height: 15.7rem;
+
+            }
+        }
+        .menu-open &{
+           animation: appear 1.6s forwards ease var(--i);
+        }
+        .menu-close &{
+            animation: hide 1s forwards ease;
+        }
+    }
+    &.menu-close{
+        opacity: 1;
+    }
+    .marquee{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        overflow: hidden;
+        pointer-events: none;
+        &__inner{
+            width: fit-content;
+            display: flex;
+            position: relative;
+            transform: translate3d(var(--move-initial), 0, 0);
+            animation: marquee 5s linear infinite;
+            animation-play-state: paused;
+            opacity: 0;
+            transition: opacity 0.1s;
+        }
+        span{
+            @include font-style(8rem, $color-white, 900);
+            text-align: center;
+            font-style: italic;
+            white-space: nowrap;
+            padding: 0 1vw;
+            font-weight: 900;
+            @include tab{
+                font-size: 4.8rem;
+            }
+        }
+    }
+    .g-menu__item-link:hover + .g-menu__item-img{
+        opacity: 1;
+        transform: translate3d(calc(-100% - 6vw),-30%,0) rotate3d(0,0,1,4deg);
+        transition: all 0.5s ease;
+    }
+    .g-menu__item-link:hover ~ .marquee .marquee__inner {
+        animation-play-state: running;
+        opacity: 1;
+        transition-duration: 0.4s;
+    }
+}
+.circle-bg{
+    position: fixed;
+    z-index: 10;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: $color-trans-bg;
+    transform: scale(0);
+    right: -5rem;
+    top: -5rem;
+    transition: transform 1.6s cubic-bezier(0.450, 0.000, 0.000, 1.000);
+    &.circleActive{
+        transform: scale(50);
+        transition: transform 1.6s cubic-bezier(0.450, 0.000, 0.000, 1.000);
+    }
+}

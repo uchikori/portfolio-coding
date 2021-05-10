@@ -1,0 +1,65 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 16rem;
+    @include sp{
+        height: 8rem;
+    }
+    .menu{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $color-white;
+        @include sp{
+            padding: 0 2.9rem;
+        }
+        @include tab{
+            padding: 0 4.5rem;
+        }
+    }
+    .list-menu{
+        height: 4rem;
+        width: 4rem;
+        cursor: pointer;
+        margin-left: auto;
+        transform: scale(1.0);
+        transition: transform 0.5s ease;
+        @include sp{
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+        &.menu-active{
+            transform: rotateZ(180deg) scale(1.1);
+            transform-origin: center;
+            transition: transform 0.5s ease;
+        }
+    }
+    .list-menu-top{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.8rem;
+        @include sp{
+            margin-bottom: 0.6rem;
+        }
+    }
+    .list-menu-bottom{
+        display: flex;
+        justify-content: space-between;
+    }
+    .box{
+        width: 1.6rem;
+        height: 1.6rem;
+        background-color: $color-white;
+        @include sp{
+            width: 0.8rem;
+            height: 0.8rem;
+        }
+    }
+}

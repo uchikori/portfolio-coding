@@ -1,0 +1,13 @@
+footer{
+    text-align: center;
+    padding-bottom: 2.3rem;
+    small{
+        font-family: $font-orbit;
+        @include font-style(1.6rem, $color-white,400);
+        line-height: 1.6rem;
+        @include sp{
+            @include font-style(1rem, $color-white, 100);
+            line-height: 1rem;
+        }
+    }
+}

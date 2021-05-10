@@ -322,7 +322,7 @@ function sliceSlider() {
     },
     //初期化
     init: function init() {
-      s = this.settings;
+      s = SliceSlider.settings;
       this.bindEvents();
     },
     //スクロールイベント・キーイベント・ボタンクリックイベントをバウンディング

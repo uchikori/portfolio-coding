@@ -303,7 +303,7 @@ function sliceSlider(){
 
         //初期化
         init: function(){
-            s = this.settings;
+            s = SliceSlider.settings;
             this.bindEvents();
         },
 

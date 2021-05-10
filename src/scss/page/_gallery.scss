@@ -1,0 +1,124 @@
+&.gallery{
+    &:before{
+        background-image: url('../images/gallery-background.webp')
+    }
+    .gallery-item{
+        padding: 10rem 0;
+        @include tab{
+            padding: 0;
+        }
+        &__image{
+            height: 41.6rem;
+            filter: grayscale(100%);
+            transition: filter 0.8s ease;
+            &.vertical{
+                height: 72rem;
+                @include tab{
+                    height: 33.8rem;
+                }
+            }
+            &.is-hover{
+                filter: grayscale(0%);
+                transition: filter 0.8s ease;
+            }
+            &:hover{
+                filter: grayscale(0%);
+                transition: filter 0.8s ease;
+            }
+            @include tab{
+                margin-bottom: 3.2rem;
+                height: 19.6rem;
+            }
+        }
+        &__num{
+            @include font-style(1.2rem, $color-white, normal);
+            line-height: 1;
+            font-family: $font-orbit;
+            text-transform: uppercase;
+            margin-bottom: 1.6rem;
+            display: block;
+            @include tab{
+                font-size: 1rem;
+            }
+        }
+        &__title{
+            @include font-style(3.2rem, $color-white, normal);
+            line-height: 1.5;
+            display: block;
+            margin-bottom: 1.6rem;
+            padding: 0;
+            border: none;
+            @include tab{
+                font-size: 2rem;
+                
+            }
+        }
+        &__en-title{
+            display: block;
+            @include font-style(1.2rem, $color-white, normal);
+            line-height: 1;
+            font-family: $font-orbit;
+            text-transform: uppercase;
+            margin-bottom: 1.6rem;
+            @include tab{
+                font-size: 1rem;
+            }
+        }
+        &__category{
+            display: inline-block;
+            @include font-style(1.2rem, $color-white, bold);
+            line-height: 1;
+            font-family: $font-orbit;
+            text-transform: uppercase;
+            padding: 0.2rem 1.2rem;
+            background-color: $color-white;
+            color: #000438;
+            margin-bottom: 4rem;
+            text-decoration: none;
+            @include tab{
+                font-size: 1rem;
+                padding: 0.3rem 1.4rem;
+                margin-bottom: 2.4rem;
+            }
+        }
+        &__description{
+            margin-bottom: 8rem;
+            @include tab{
+                margin-bottom: 4.8rem;
+            }
+        }
+        &__link{
+            @include font-style(2rem, $color-white, bold);
+            line-height: 1;
+            font-family: $font-orbit;
+            text-transform: uppercase;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            &:after{
+                content: "";
+                display: block;
+                width: 4rem;
+                height: 1px;
+                background-color:$color-white;
+                position: absolute;
+                right: -60%;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: right 0.3s ease;
+                @include sp{
+                    width: 4rem;
+                    height: 1px;
+                }
+            }
+            &:hover{
+                filter: brightness(80%);
+                &:after{
+                    right: -80%;
+                    transition: right 0.3s ease;
+                }
+            }
+        }
+    }
+
+}

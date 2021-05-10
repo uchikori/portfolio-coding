@@ -1,0 +1,94 @@
+&.contact{
+    &:before{
+        background-image: url('../images/contact-background.webp');
+    }
+    .contact-form{
+        &__item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 4rem;
+            &:nth-child(6){
+                margin-bottom: 8rem;
+            }
+            &.align-top{
+                align-items: start;
+            }
+            @include tab{
+                display: block;
+            }
+
+        }
+        &__item__label{
+            font-family: $font-orbit;
+            @include font-style(1.6rem, $color-white, normal);
+            line-height: 1;
+            text-align: right;
+            margin-right: 3.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            span{
+                color: red;
+            }
+            @include tab{
+                text-align: left;
+                display: block;
+                margin-right: 0;
+                margin-bottom: 1.6rem;
+            }
+        }
+        .type-text{
+            height: 4rem;
+            background-color: $color-white;
+            padding: 0 1.6rem;
+            color: $color-dark;
+        }
+        .type-email{
+            height: 4rem;
+            background-color: $color-white;
+            padding: 0 1.6rem;
+            color: $color-dark;
+        }
+        .type-select{
+            height: 4rem;
+            background-color: $color-white;
+            padding: 0 1.6rem;
+            color: $color-dark;
+            position: relative;
+            background-image: url('../images/toggle-button.svg');
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+        .type-textarea{
+            background-color: $color-white;
+            padding: 1.2rem 1.6rem;
+            color: $color-dark;
+        }
+        .type-checkbox{
+            width: 1.6rem;
+            height: 1.6rem;
+        }
+        .wpcf7-list-item-label{
+            @include font-style(1.4rem, $color-white, normal);
+            line-height: 1;
+            display: inline-block;
+        }
+        .contact-form__submit{
+            text-align: center;
+        }
+        .submitbtn{
+            @include font-style(4rem, $color-white, normal);
+            padding: 2.2rem 9.6rem;
+            font-family: $font-orbit;
+            text-decoration: none;
+            text-align: center;
+            &:hover{
+                color: #D40A83;
+                transform: scale(1.02);
+            }
+            @include tab{
+                font-size: 2rem;
+            }
+        }
+    }
+}

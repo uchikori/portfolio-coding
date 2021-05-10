@@ -1,0 +1,43 @@
+&.thanks{
+    &:before{
+        background-image: url('../images/contact-background.webp');
+    }
+    .main-visual{
+        margin-bottom: 0;
+        &__inner{
+            text-align: center;
+        }
+        &__header{
+            justify-content: center;
+            transform: translateX(0);
+        }
+        .head-title{
+            margin: 0 auto 5.5rem auto;
+        }
+        .head-text{
+            width: 100%;
+        }
+    }
+    .sns-block{
+        bottom: 16%;
+        &:before{
+            content: '';
+            position: absolute;
+            bottom: 185%;
+            left: 50%;
+            width: 1px;
+            height: 12rem;
+            background-color: $color-white;
+            animation: scroll-lead 3s cubic-bezier(1, 0, 0, 1) infinite;
+            @include tab{
+                height: 18rem;
+            }
+        }
+    }
+    footer{
+        position: fixed;
+        bottom: 0%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

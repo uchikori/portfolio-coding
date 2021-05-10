@@ -1,0 +1,27 @@
+.scroll-lead{
+    @include font-style(1.2rem, $color-white, normal);
+    writing-mode: vertical-rl;
+    z-index: 100;
+    position: absolute;
+    left: 6.6%;
+    bottom: 0;
+    padding-bottom: 22rem;
+    overflow: hidden;
+    @include tab{
+        @include font-style(1.2rem, $color-white, normal);
+        padding-bottom: 10rem;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        height: 20rem;
+        background-color: $color-white;
+        animation: scroll-lead 3s cubic-bezier(1, 0, 0, 1) infinite;
+        @include tab{
+            height: 8rem;
+        }
+    }
+}
