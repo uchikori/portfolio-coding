@@ -2108,6 +2108,33 @@ body.appear .container {
           filter: brightness(50%);
 }
 
+.page-wrapper h1 {
+  font-size: 76.8px;
+  font-size: 4.8rem;
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+.page-wrapper h3 {
+  font-size: 32px;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 64px;
+  margin-bottom: 4rem;
+}
+
+.page-wrapper .first-image {
+  width: 1280px;
+  width: 80rem;
+  height: 790.4px;
+  height: 49.4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .page-wrapper.about:before {
   background-image: url("../images/about-background.webp");
 }
@@ -2811,6 +2838,9 @@ body.appear .container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-transform: translateX(-1.9%);
           transform: translateX(-1.9%);
 }

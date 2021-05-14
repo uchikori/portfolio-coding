@@ -412,7 +412,7 @@ function sliceSlider() {
       //リセット
       s.delta = 0; //既にクラスが付与されている場合は、処理続行
 
-      if ($('body').hasClass('is-sliding')) {
+      if (jQuery('body').hasClass('is-sliding')) {
         return;
       } //.slideクラスのついたオブジェクトのそれぞれに処理を加える
       //each(function(index, val))
@@ -420,14 +420,14 @@ function sliceSlider() {
 
       s.slides.each(function (i, slide) {
         //i番目とcurrentSlideIndexの値がtrueなら「is-active」クラスを付与する
-        $(slide).toggleClass('is-active', i === s.currentSlideIndex);
-        $(slide).toggleClass('is-prev', i === s.currentSlideIndex - 1);
-        $(slide).toggleClass('is-next', i === s.currentSlideIndex + 1); //「is-sliding」クラスの付与
+        jQuery(slide).toggleClass('is-active', i === s.currentSlideIndex);
+        jQuery(slide).toggleClass('is-prev', i === s.currentSlideIndex - 1);
+        jQuery(slide).toggleClass('is-next', i === s.currentSlideIndex + 1); //「is-sliding」クラスの付与
 
-        $('body').addClass('is-sliding'); //「is-sliding」クラスを1秒後に削除
+        jQuery('body').addClass('is-sliding'); //「is-sliding」クラスを1秒後に削除
 
         setTimeout(function () {
-          $('body').removeClass('is-sliding');
+          jQuery('body').removeClass('is-sliding');
         }, 1000);
       });
     },
