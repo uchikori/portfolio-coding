@@ -625,8 +625,8 @@ template {
 @-webkit-keyframes block-appear {
   from {
     opacity: 0;
-    -webkit-transform: translateY(10%);
-            transform: translateY(10%);
+    -webkit-transform: translateY(15%);
+            transform: translateY(15%);
   }
   to {
     opacity: 1;
@@ -638,8 +638,8 @@ template {
 @keyframes block-appear {
   from {
     opacity: 0;
-    -webkit-transform: translateY(10%);
-            transform: translateY(10%);
+    -webkit-transform: translateY(15%);
+            transform: translateY(15%);
   }
   to {
     opacity: 1;
@@ -1461,8 +1461,8 @@ body.appear .container {
 }
 
 .scroll-on {
-  -webkit-animation: block-appear 0.8s forwards ease;
-          animation: block-appear 0.8s forwards ease;
+  -webkit-animation: block-appear 1.8s forwards ease;
+          animation: block-appear 1.8s forwards ease;
 }
 
 .scroll-lead {
@@ -2078,6 +2078,33 @@ body.appear .container {
   margin-right: 0;
 }
 
+.page-default-template h1 {
+  font-size: 76.8px;
+  font-size: 4.8rem;
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+.page-default-template h3 {
+  font-size: 32px;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 64px;
+  margin-bottom: 4rem;
+}
+
+.page-default-template .first-image {
+  width: 1280px;
+  width: 80rem;
+  height: 790.4px;
+  height: 49.4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .page-wrapper {
   -webkit-transition: max-height 0s 0.8s ease, -webkit-transform 0.5s ease;
   transition: max-height 0s 0.8s ease, -webkit-transform 0.5s ease;
@@ -2106,33 +2133,6 @@ body.appear .container {
   filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.5" /><feFuncG type="linear" slope="0.5" /><feFuncB type="linear" slope="0.5" /></feComponentTransfer></filter></svg>#filter');
   -webkit-filter: brightness(50%);
           filter: brightness(50%);
-}
-
-.page-wrapper h1 {
-  font-size: 76.8px;
-  font-size: 4.8rem;
-  color: #ffffff;
-  font-weight: normal;
-  line-height: 1.5;
-}
-
-.page-wrapper h3 {
-  font-size: 32px;
-  font-size: 2rem;
-  color: #ffffff;
-  font-weight: normal;
-  line-height: 1.5;
-  margin-bottom: 64px;
-  margin-bottom: 4rem;
-}
-
-.page-wrapper .first-image {
-  width: 1280px;
-  width: 80rem;
-  height: 790.4px;
-  height: 49.4rem;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .page-wrapper.about:before {
@@ -3083,7 +3083,7 @@ body.appear .container {
           animation: scroll-lead 3s cubic-bezier(1, 0, 0, 1) infinite;
 }
 
-.link-btn.notes {
+.link-btn.default {
   font-size: 28.8px;
   font-size: 1.8rem;
   color: #ffffff;
@@ -3092,6 +3092,7 @@ body.appear .container {
   padding: 1rem 1.9rem;
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .link-btn:hover {

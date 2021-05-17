@@ -50,10 +50,11 @@ if (title) {
 
 if (svg) {
   svgAnimation();
-} // if(scrollOn){
-//     scrollAnimation();
-// }
+}
 
+if (scrollOn) {
+  scrollAnimation();
+}
 
 if (scrollContainer) {
   scrollParallax();
@@ -550,22 +551,23 @@ function svgAnimation() {
  * スクロールアニメーション
  * 
  */
-// function scrollAnimation(){
-//     scrollOn.forEach(function(item){
-//         gsap.to(item, {
-//             scrollTrigger:{
-//                 trigger: item,
-//                 start: 'top bottom-=25%',
-//                 end:'center center',
-//                 // markers: true,
-//                 onEnter: function(){
-//                     item.classList.add('scroll-on');
-//                 }
-//             }, 
-//         }); 
-//     });
-// }
 
+
+function scrollAnimation() {
+  scrollOn.forEach(function (item) {
+    gsap.to(item, {
+      scrollTrigger: {
+        trigger: item,
+        start: 'top bottom-=25%',
+        end: 'center center',
+        // markers: true,
+        onEnter: function onEnter() {
+          item.classList.add('scroll-on');
+        }
+      }
+    });
+  });
+}
 /**
  * 
  * 
