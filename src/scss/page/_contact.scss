@@ -38,18 +38,21 @@
             }
         }
         .type-text{
+            width: 100%;
             height: 4rem;
             background-color: $color-white;
             padding: 0 1.6rem;
             color: $color-dark;
         }
         .type-email{
+            width: 100%;
             height: 4rem;
             background-color: $color-white;
             padding: 0 1.6rem;
             color: $color-dark;
         }
         .type-select{
+            width: 100%;
             height: 4rem;
             background-color: $color-white;
             padding: 0 1.6rem;
@@ -60,6 +63,7 @@
             background-position: right;
         }
         .type-textarea{
+            width: 100%;
             background-color: $color-white;
             padding: 1.2rem 1.6rem;
             color: $color-dark;
@@ -90,5 +94,11 @@
                 font-size: 2rem;
             }
         }
+        .wpcf7-form-control-wrap{
+            @include flex-width(8);
+            @include tab{
+                width: 100%;
+            }
+        } 
     }
 }

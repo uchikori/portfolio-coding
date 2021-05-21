@@ -1118,7 +1118,6 @@ a {
   padding: 64px;
   padding: 4rem;
   gap: 20px;
-  border-radius: 10px;
   -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, .16);
@@ -1795,25 +1794,25 @@ body.appear .container {
   margin-right: 51.2px;
   margin-right: 3.2rem;
   gap: 20px;
-  border-radius: 0.8rem;
+  border-radius: 0.2rem;
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, .2);
-  -webkit-box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px;
-          box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px;
-  border: 2px rgba(255, 255, 255, .4) solid;
-  border-bottom: 2px rgba(40, 40, 40, .35) solid;
-  border-right: 2px rgba(40, 40, 40, .35) solid;
+  -webkit-box-shadow: rgba(0, 0, 0, .3) 2px 4px 8px;
+          box-shadow: rgba(0, 0, 0, .3) 2px 4px 8px;
+  border: 1px rgba(255, 255, 255, .4) solid;
+  border-bottom: 1px rgba(40, 40, 40, .35) solid;
+  border-right: 1px rgba(40, 40, 40, .35) solid;
   -webkit-transition: background-color 0.4s ease;
   transition: background-color 0.4s ease;
   cursor: pointer;
   -webkit-transform: translate3d(0, 140%, 0);
           transform: translate3d(0, 140%, 0);
   opacity: 0;
-  -webkit-transition: opacity 0.8s ease, -webkit-transform 0.8s cubic-bezier(0.96, 0.165, 0, 0.655);
-  transition: opacity 0.8s ease, -webkit-transform 0.8s cubic-bezier(0.96, 0.165, 0, 0.655);
-  transition: transform 0.8s cubic-bezier(0.96, 0.165, 0, 0.655), opacity 0.8s ease;
-  transition: transform 0.8s cubic-bezier(0.96, 0.165, 0, 0.655), opacity 0.8s ease, -webkit-transform 0.8s cubic-bezier(0.96, 0.165, 0, 0.655);
+  -webkit-transition: opacity 0.4s ease, -webkit-transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655);
+  transition: opacity 0.4s ease, -webkit-transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655);
+  transition: transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655), opacity 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655), opacity 0.4s ease, -webkit-transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655);
   overflow-y: hidden;
 }
 
@@ -1981,10 +1980,10 @@ body.appear .container {
   -webkit-transform: translate3d(0, 0%, 0);
           transform: translate3d(0, 0%, 0);
   opacity: 1;
-  -webkit-transition: opacity 0.8s ease, -webkit-transform 1.2s cubic-bezier(0.96, 0.165, 0, 0.655);
-  transition: opacity 0.8s ease, -webkit-transform 1.2s cubic-bezier(0.96, 0.165, 0, 0.655);
-  transition: transform 1.2s cubic-bezier(0.96, 0.165, 0, 0.655), opacity 0.8s ease;
-  transition: transform 1.2s cubic-bezier(0.96, 0.165, 0, 0.655), opacity 0.8s ease, -webkit-transform 1.2s cubic-bezier(0.96, 0.165, 0, 0.655);
+  -webkit-transition: opacity 0.4s ease, -webkit-transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655);
+  transition: opacity 0.4s ease, -webkit-transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655);
+  transition: transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655), opacity 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655), opacity 0.4s ease, -webkit-transform 0.6s cubic-bezier(0.96, 0.165, 0, 0.655);
 }
 
 .slide canvas {
@@ -2493,6 +2492,13 @@ body.appear .container {
   background-image: url("../images/gallery-background.webp");
 }
 
+.page-wrapper.gallery .content__gallery:nth-child(2n) .flex-block {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
 .page-wrapper.gallery .gallery-item {
   padding: 160px 0;
   padding: 10rem 0;
@@ -2686,6 +2692,7 @@ body.appear .container {
 }
 
 .page-wrapper.contact .contact-form .type-text {
+  width: 100%;
   height: 64px;
   height: 4rem;
   background-color: #ffffff;
@@ -2695,6 +2702,7 @@ body.appear .container {
 }
 
 .page-wrapper.contact .contact-form .type-email {
+  width: 100%;
   height: 64px;
   height: 4rem;
   background-color: #ffffff;
@@ -2704,6 +2712,7 @@ body.appear .container {
 }
 
 .page-wrapper.contact .contact-form .type-select {
+  width: 100%;
   height: 64px;
   height: 4rem;
   background-color: #ffffff;
@@ -2717,6 +2726,7 @@ body.appear .container {
 }
 
 .page-wrapper.contact .contact-form .type-textarea {
+  width: 100%;
   background-color: #ffffff;
   padding: 19.2px 25.6px;
   padding: 1.2rem 1.6rem;
@@ -2759,6 +2769,10 @@ body.appear .container {
   color: #D40A83;
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
+}
+
+.page-wrapper.contact .contact-form .wpcf7-form-control-wrap {
+  width: 65.756%;
 }
 
 .page-wrapper.thanks:before {
@@ -3829,6 +3843,9 @@ footer small {
   }
   .page-wrapper.contact .contact-form .submitbtn {
     font-size: 2rem;
+  }
+  .page-wrapper.contact .contact-form .wpcf7-form-control-wrap {
+    width: 100%;
   }
   .page-wrapper.thanks .sns-block:before {
     height: 18rem;

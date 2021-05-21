@@ -2,6 +2,13 @@
     &:before{
         background-image: url('../images/gallery-background.webp')
     }
+    .content__gallery{
+        &:nth-child(2n){
+            .flex-block{
+                flex-direction: row-reverse;
+            }
+        }
+    }
     .gallery-item{
         padding: 10rem 0;
         @include tab{
@@ -120,5 +127,4 @@
             }
         }
     }
-
 }
