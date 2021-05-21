@@ -1,0 +1,51 @@
+.web-tips-template-default{
+    .main-visual__inner{
+        @include tab{
+            width: 84vw;
+        }
+    }
+    .main-visual__header{
+        @include tab{
+            display: block;
+            transform: translateX(0);
+        }
+    }
+    .content-block{
+        padding: 10rem 0;
+    }
+
+    h1{
+        @include font-style(4.8rem, $color-white, normal);
+        line-height:1.8;
+        @include tab{
+            @include font-style(2.4rem, $color-white, normal);
+            line-height: 1.5;
+        }
+    }
+    h3{
+        @include font-style(2rem, $color-white, normal);
+        line-height:3rem;
+        border-top: solid 1px $color-white;
+        border-bottom: solid 1px $color-white;
+        margin-bottom: 4rem;
+        padding-left: 0.8rem;
+        @include tab{
+            @include font-style(1.8rem, $color-white, normal);
+            padding-left: 1.2rem;
+            margin-bottom: 4rem;
+        }
+    }
+    p{
+        margin: 2.4rem 0;
+    }
+    .first-image{
+        width: 80rem;
+        height: 49.4rem;
+        object-fit: cover;
+        @include tab{
+            width: 100%;
+            height: 17rem;
+        }
+
+    }
+}
