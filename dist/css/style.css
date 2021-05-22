@@ -3093,11 +3093,6 @@ body.appear .container {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 60"><path fill="%23D40A83" d="M 22.55300903320313 2 L 12.36471557617188 10.17288589477539 L 2 19.22367477416992 L 2 58 L 345.2497253417969 58 L 355.4876403808594 49.99462890625 L 365.9812622070313 41.08939361572266 L 365.9990844726563 2 L 22.55300903320313 2 M 21.85000610351563 0 L 368 0 L 367.9808349609375 42.01560211181641 L 356.7509460449219 51.54565048217773 L 345.9388427734375 60 L 0 60 L 0 18.31494903564453 L 11.0804443359375 8.639148712158203 L 21.85000610351563 0 Z"/></svg>');
 }
 
-.web-tips-template-default .content-block {
-  padding: 160px 0;
-  padding: 10rem 0;
-}
-
 .web-tips-template-default h1 {
   font-size: 76.8px;
   font-size: 4.8rem;
@@ -3133,6 +3128,125 @@ body.appear .container {
   height: 49.4rem;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.web-tips .flex-block {
+  padding: 25.6px 0;
+  padding: 1.6rem 0;
+}
+
+.web-tips .flex-block:hover .web-tips-thumbnail:after {
+  opacity: 0.7;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.web-tips .flex-block:hover .web-tips-thumbnail img {
+  -webkit-transform: scale(1.4) rotateZ(15deg);
+          transform: scale(1.4) rotateZ(15deg);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="1.4" /><feFuncG type="linear" slope="1.4" /><feFuncB type="linear" slope="1.4" /></feComponentTransfer></filter></svg>#filter');
+  -webkit-filter: brightness(140%);
+          filter: brightness(140%);
+  -webkit-transition: -webkit-transform 0.3s ease, -webkit-filter 0.3s ease;
+  transition: -webkit-transform 0.3s ease, -webkit-filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease, -webkit-transform 0.3s ease, -webkit-filter 0.3s ease;
+}
+
+.web-tips .flex-block:hover .web-tips-thumbnail .web-tips-thumbnail__overlay {
+  opacity: 1.0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.web-tips .flex-block:hover .web-tips-title:before {
+  width: 100%;
+  -webkit-transition: width 0.5s ease;
+  transition: width 0.5s ease;
+}
+
+.web-tips .flex-block .web-tips-thumbnail {
+  overflow: hidden;
+  position: relative;
+  height: 256px;
+  height: 16rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.web-tips .flex-block .web-tips-thumbnail:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+.web-tips .flex-block .web-tips-thumbnail img {
+  -webkit-transform: scale(1) rotateZ(0deg);
+          transform: scale(1) rotateZ(0deg);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="1" /><feFuncG type="linear" slope="1" /><feFuncB type="linear" slope="1" /></feComponentTransfer></filter></svg>#filter');
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+  -webkit-transition: -webkit-transform 0.3s ease, -webkit-filter 0.3s ease;
+  transition: -webkit-transform 0.3s ease, -webkit-filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease, -webkit-transform 0.3s ease, -webkit-filter 0.3s ease;
+}
+
+.web-tips .flex-block .web-tips-thumbnail .web-tips-thumbnail__overlay {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  opacity: 0;
+  font-family: "Orbitron", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-size: 28.8px;
+  font-size: 1.8rem;
+  color: #ffffff;
+  font-weight: 400;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.web-tips .flex-block .web-tips-title {
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+  position: relative;
+}
+
+.web-tips .flex-block .web-tips-title:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 100%;
+  background-color: rgba(198, 0, 105, .5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: width 0.5s ease;
+  transition: width 0.5s ease;
+}
+
+.web-tips a {
+  text-decoration: none;
 }
 
 .page-single:before {
@@ -3949,6 +4063,10 @@ footer small {
   .web-tips-template-default .first-image {
     width: 100%;
     height: 17rem;
+  }
+  .web-tips .flex-block .web-tips-thumbnail {
+    width: 100%;
+    margin-bottom: 2.4rem;
   }
   .page-single .main-visual {
     margin-bottom: -16.5rem;
