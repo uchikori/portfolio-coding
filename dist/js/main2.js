@@ -35,36 +35,11 @@ var scrollContainer = document.querySelector('.scroll-container');
 mouseStorker();
 mouseHover();
 menuOpen();
-
-if (canvas) {
-  waveAnimation();
-}
-
-if (slides) {
-  sliceSlider();
-}
-
-if (title) {
-  accordion();
-}
-
-if (svg) {
-  svgAnimation();
-}
-
-if (scrollOn) {
-  scrollAnimation();
-}
-
-if (scrollContainer) {
-  scrollParallax();
-}
 /**
  * 
  * ローディングスプラッシュアニメーション
  * 
  */
-
 
 window.addEventListener('load', function () {
   document.body.classList.add('appear');
@@ -262,24 +237,16 @@ function menuOpen() {
  * */
 
 
-function waveAnimation() {
-  var stageW = 0;
-  var stageH = 0;
-  var context = canvas.getContext('2d');
-  noise.seed(Math.random());
-  resize();
-  tick(); //画面がリサイズされたとき、resize関数を流す
-
-  window.addEventListener('resize', resize); //アニメーションのタイミング
-
-  function tick() {
+if (canvas) {
+  //アニメーションのタイミング
+  var tick = function tick() {
     requestAnimationFrame(tick);
     var time = Date.now() / 2000;
     draw(time);
-  } //アニメーション描画の設定
+  }; //アニメーション描画の設定
 
 
-  function draw(time) {
+  var draw = function draw(time) {
     //画面をリセット
     context.clearRect(0, 0, stageW, stageH);
     context.lineWidth = 1; //線の太さ
@@ -318,15 +285,24 @@ function waveAnimation() {
 
       context.stroke(); //線を描く
     });
-  } //リサイズ時
+  }; //リサイズ時
 
 
-  function resize() {
+  var resize = function resize() {
     stageW = innerWidth * devicePixelRatio;
     stageH = innerHeight * devicePixelRatio;
     canvas.width = stageW;
     canvas.height = stageH;
-  }
+  };
+
+  var stageW = 0;
+  var stageH = 0;
+  var context = canvas.getContext('2d');
+  noise.seed(Math.random());
+  resize();
+  tick(); //画面がリサイズされたとき、resize関数を流す
+
+  window.addEventListener('resize', resize);
 }
 /**
  * 
@@ -335,7 +311,7 @@ function waveAnimation() {
  * */
 
 
-function sliceSlider() {
+if (slides) {
   var SliceSlider = {
     //オブジェクトの定義
     settings: {
@@ -532,7 +508,7 @@ function sliceSlider() {
  * */
 
 
-function accordion() {
+if (title) {
   // for(let i = 0; i < title.length; i++){
   //     let titleEach = title[i];
   //     let textEach = titleEach.nextElementSibling;
@@ -564,7 +540,7 @@ function accordion() {
  * */
 
 
-function svgAnimation() {
+if (svg) {
   ScrollTrigger.create({
     trigger: '#svg',
     start: 'top bottom-=10%',
@@ -592,7 +568,7 @@ function svgAnimation() {
  */
 
 
-function scrollAnimation() {
+if (scrollOn) {
   scrollOn.forEach(function (item) {
     gsap.to(item, {
       scrollTrigger: {
@@ -608,18 +584,17 @@ function scrollAnimation() {
   });
 }
 
-function scrollParallax() {
+if (scrollContainer) {
+  var setHeight = function setHeight() {
+    height = scrollContainer.clientHeight;
+    document.body.style.height = "".concat(height, "px");
+    console.log(height);
+  };
+
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin); // let container = document.querySelector('.scroll-container');
 
   var height;
-
-  function setHeight() {
-    height = scrollContainer.clientHeight;
-    document.body.style.height = "".concat(height, "px");
-    console.log(height);
-  }
-
   ScrollTrigger.addEventListener('refreshInit', setHeight);
   gsap.to(scrollContainer, {
     y: function y() {

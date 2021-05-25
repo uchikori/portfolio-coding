@@ -2201,18 +2201,7 @@ body.appear .container {
 }
 
 .page-wrapper.service .accordion-item .accordion-text {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  -webkit-transition: max-height 0.5s ease, opacity 0.5s ease;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-}
-
-.page-wrapper.service .accordion-item .accordion-text.is-open {
-  max-height: 100vh;
-  opacity: 1;
-  -webkit-transition: max-height 0.5s ease, opacity 0.5s ease;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
+  display: none;
 }
 
 .page-wrapper.service .accordion-item .is-active .toggle-btn:after {

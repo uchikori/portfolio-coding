@@ -22,24 +22,6 @@ const scrollContainer = document.querySelector('.scroll-container');
 mouseStorker();
 mouseHover();
 menuOpen();
-if(canvas){
-    waveAnimation();
-}
-if(slides){
-    sliceSlider();
-}
-if(title){
-    accordion();
-}
-if(svg){
-    svgAnimation();
-}
-if(scrollOn){
-    scrollAnimation();
-}
-if(scrollContainer){
-    scrollParallax();
-}
 
 
 /**
@@ -237,7 +219,8 @@ function menuOpen(){
  * TOP画面CANVASアニメーション 
  * 
  * */
-function waveAnimation(){
+if(canvas){
+
     let stageW = 0;
     let stageH = 0;
 
@@ -305,14 +288,17 @@ function waveAnimation(){
         canvas.width = stageW;
         canvas.height = stageH;
     }
+
 }
+
 
 /**
  * 
  * Slice Slider アニメーション
  * 
  * */
-function sliceSlider(){
+if(slides){
+
     var SliceSlider = {
         //オブジェクトの定義
         settings:{
@@ -465,7 +451,9 @@ function sliceSlider(){
         },
     };
     SliceSlider.init();
+
 }
+
 
 /**
  * 
@@ -506,7 +494,8 @@ function sliceSlider(){
  * サービスページアコーディオン 
  * 
  * */
-function accordion(){
+if(title){
+
     // for(let i = 0; i < title.length; i++){
     //     let titleEach = title[i];
     //     let textEach = titleEach.nextElementSibling;
@@ -529,14 +518,17 @@ function accordion(){
             answer.slideDown();
         }
     });
+
 }
+
 
 /**
  * 
  * vivusアニメーション
  * 
  * */
-function svgAnimation(){
+if(svg){
+
     ScrollTrigger.create({
         trigger: '#svg',
         start: 'top bottom-=10%',
@@ -556,7 +548,9 @@ function svgAnimation(){
         }
     
     });
+
 }
+
 
 /**
  * 
@@ -564,7 +558,8 @@ function svgAnimation(){
  * スクロールアニメーション
  * 
  */
-function scrollAnimation(){
+if(scrollOn){
+
     scrollOn.forEach(function(item){
         gsap.to(item, {
             scrollTrigger:{
@@ -578,10 +573,12 @@ function scrollAnimation(){
             }, 
         }); 
     });
+
 }
 
 
-function scrollParallax(){
+if(scrollContainer){
+
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
 
@@ -606,4 +603,5 @@ function scrollParallax(){
             invalidateOnRefresh: true
         }
     });
+
 }
