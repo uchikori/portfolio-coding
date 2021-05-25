@@ -1,40 +1,37 @@
 .container{
     width: 100vw;
-    // transform-style: preserve-3d;
     overflow: hidden;
     opacity: 0;
-    // background-color:$color-border;
-    // position: relative;
     body.appear &{
         animation: PageAnimeAppear 1s 0.8s forwards;
         opacity: 0;
     }
-    &.about{
-        background-image: url('../images/about-backround@2x.webp');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
-    canvas{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        z-index: -1;
-    }
-    &.service{
-        background-image: url('../images/service-backround@2x.webp');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
-    &.notes{
-        background-image: url('../images/service-backround@2x.webp');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
+    // &.about{
+    //     background-image: url('../images/about-backround@2x.webp');
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     background-size: cover;
+    // }
+    // canvas{
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     left: 0;
+    //     top: 0;
+    //     z-index: -1;
+    // }
+    // &.service{
+    //     background-image: url('../images/service-backround@2x.webp');
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     background-size: cover;
+    // }
+    // &.notes{
+    //     background-image: url('../images/service-backround@2x.webp');
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     background-size: cover;
+    // }
 }
 .g-menu{
     width: 100%;
@@ -53,6 +50,9 @@
 	--move-final: calc(-50% + var(--offset));
 	--item-font-size: 10vw;
     display: none;
+    @include wide-pc{
+        padding: 120px 0;
+    }
     @include tab{
         padding: 8vh 0;
     }
@@ -63,6 +63,10 @@
         font-family: $font-orbit;
         text-transform: uppercase;
         opacity: 0;
+        @include wide-pc{
+            font-size: 68px;
+            padding: 24px 50px;
+        }
         @include tab{
             font-size: 4rem;
         }
@@ -75,6 +79,9 @@
             color: transparent;
             transition: opacity 0.5s ease;
             padding: 0 4.8rem;
+            @include wide-pc{
+                padding: 0 48px;
+            }
             @include tab{
                 padding: 0 3.2rem;
             }
@@ -87,6 +94,9 @@
                 pointer-events: none;
                 @include font-style(2rem, $color-white, normal);
                 font-family: $font-orbit;
+                @include wide-pc{
+                    font-size: 20px;
+                }
                 @include tab{
                     font-size: 1.2rem;
                 }
@@ -108,6 +118,12 @@
             top: 10%;
             transform: translate3d(calc(-100% - 6vw),-30%,0) translate3d(0,20px,0);
             box-shadow: 0 0 1.6rem $color-border, 0 0 1.6rem $color-border, 0 0 1.6rem $color-border;
+            @include wide-pc{
+                width: 500px;
+                height: 280px;
+                max-height: 280px;
+                box-shadow: 0 0 16px $color-border, 0 0 16px $color-border, 0 0 16px $color-border;
+            }
             @include tab{
                 width: 28rem;
                 height: 15.7rem;
@@ -148,6 +164,10 @@
             white-space: nowrap;
             padding: 0 1vw;
             font-weight: 900;
+            @include wide-pc{
+                font-size: 68px;
+                padding: 0 10px;
+            }
             @include tab{
                 font-size: 4.8rem;
             }

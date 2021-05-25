@@ -5,8 +5,11 @@
     position: absolute;
     left: 6.6%;
     bottom: 0;
-    padding-bottom: 22rem;
+    padding-bottom: 23vh;
     overflow: hidden;
+    @include wide-pc{
+        left: 10%;
+    }
     @include tab{
         @include font-style(1.2rem, $color-white, normal);
         padding-bottom: 10rem;
@@ -17,7 +20,7 @@
         bottom: 0;
         left: 50%;
         width: 1px;
-        height: 20rem;
+        height: 20vh;
         background-color: $color-white;
         animation: scroll-lead 3s cubic-bezier(1, 0, 0, 1) infinite;
         @include tab{

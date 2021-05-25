@@ -14,6 +14,12 @@
             &.align-top{
                 align-items: start;
             }
+            @include wide-pc{
+                margin-bottom: 40px;
+                &:nth-child(6){
+                    margin-bottom: 80px;
+                }
+            }
             @include tab{
                 display: block;
             }
@@ -30,6 +36,10 @@
             span{
                 color: red;
             }
+            @include wide-pc{
+                font-size: 16px;
+                margin-right: 32px;
+            }
             @include tab{
                 text-align: left;
                 display: block;
@@ -43,6 +53,11 @@
             background-color: $color-white;
             padding: 0 1.6rem;
             color: $color-dark;
+            font-size: 16px;
+            @include wide-pc{
+                height: 40px;
+                padding: 0 16px;
+            }
         }
         .type-email{
             width: 100%;
@@ -50,6 +65,11 @@
             background-color: $color-white;
             padding: 0 1.6rem;
             color: $color-dark;
+            font-size: 16px;
+            @include wide-pc{
+                height: 40px;
+                padding: 0 16px;
+            }
         }
         .type-select{
             width: 100%;
@@ -61,21 +81,37 @@
             background-image: url('../images/toggle-button.svg');
             background-repeat: no-repeat;
             background-position: right;
+            font-size: 16px;
+            @include wide-pc{
+                height: 40px;
+                padding: 0 16px;
+            }
         }
         .type-textarea{
             width: 100%;
             background-color: $color-white;
             padding: 1.2rem 1.6rem;
             color: $color-dark;
+            font-size: 16px;
+            @include wide-pc{
+                padding: 12px 16px;
+            }
         }
         .type-checkbox{
             width: 1.6rem;
             height: 1.6rem;
+            @include wide-pc{
+                width: 16px;
+                height: 16px;
+            }
         }
         .wpcf7-list-item-label{
             @include font-style(1.4rem, $color-white, normal);
             line-height: 1;
             display: inline-block;
+            @include wide-pc{
+                font-size: 14px;
+            }
         }
         .contact-form__submit{
             text-align: center;
@@ -89,6 +125,10 @@
             &:hover{
                 color: #D40A83;
                 transform: scale(1.02);
+            }
+            @include wide-pc{
+                font-size: 40px;
+                padding: 22px 96px;
             }
             @include tab{
                 font-size: 2rem;

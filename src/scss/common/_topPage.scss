@@ -77,8 +77,6 @@
     }
 }
 
-
-
 //-------------------------------
 //  Slides
 //-------------------------------
@@ -141,6 +139,9 @@
         align-items: center;
         overflow-y: hidden;
         // transform: translateX(-1.9%);
+        @include wide-pc {
+            width: 80.41%;
+        }
         @include sp{
             width: 84%;
             // transform: translateX(-2.9%);
@@ -170,32 +171,50 @@
         }
         .head-title{
             margin-bottom: 5.5rem;
+            @include wide-pc{
+                margin-bottom: 55px;
+            }
             &__main{
                 width: 53rem;
+                @include wide-pc {
+                    width: 530px;
+                }
                 @include sp{
                     width: 26.5rem;
                 }
             }
             &__about{
                 width: 42.05rem;
+                @include wide-pc {
+                    width: 420px;
+                }
                 @include sp{
                     width: 21rem;
                 }
             }
             &__service{
                 width: 58rem;
+                @include wide-pc {
+                    width: 580px;
+                }
                 @include sp{
                     width: 29rem;
                 }
             }
-            &__gallery{
-                width: 56.7rem;
+            &__works{
+                width: 45.8rem;
+                @include wide-pc {
+                    width: 458px;
+                }
                 @include sp{
-                    width: 28.3rem;
+                    width: 21rem;
                 }
             }
             &__blog{
                 width: 32.8rem;
+                @include wide-pc {
+                    width: 328px;
+                }
                 @include sp{
                     width: 16.4rem;
                 }
@@ -208,7 +227,10 @@
             @include font-style(1.8rem, $color-white,400);
             width: 54.4rem;
             line-height: 1.88;
-            
+            @include wide-pc {
+                font-size: 18px;
+                width: 560px;
+            }
             @include sp{
                 width: 30rem;
                 line-height: 1.857;
@@ -218,6 +240,9 @@
         }
         .page-link{
             margin-top: 6rem;
+            @include wide-pc {
+                margin-top: 60px;
+            }
             @include sp{
                 margin-top: 2rem;
             }
@@ -225,6 +250,9 @@
                 width: 26.45rem;
                 position: relative;
                 vertical-align: middle;
+                @include wide-pc {
+                    width: 265px;
+                }
                 @include sp{
                     width: 13.2rem;
                 }
@@ -239,6 +267,9 @@
                     top: 50%;
                     transform: translateY(-50%);
                     transition: right 0.3s ease;
+                    @include wide-pc {
+                        width: 80px;
+                    }
                     @include sp{
                         width: 4rem;
                         height: 1px;
@@ -258,6 +289,10 @@
         width: 90.4rem;
         margin-left: 15.8rem !important;
         display: flex;
+        @include wide-pc {
+            width: 904px;
+            margin-left: 158px;
+        }
         @include tab{
             display: none;
         }
@@ -280,6 +315,12 @@
             opacity: 0;
             transition: transform 0.6s $ease-cb-5, opacity 0.4s ease;
             overflow-y: hidden;
+            @include wide-pc {
+                width: 280px;
+                padding: 16px;
+                margin-right: 32px;
+                border-radius: 2px;
+            }
             &:last-child{
                 margin-right: 0;
             }
@@ -290,6 +331,11 @@
                 object-fit: cover;
                 overflow: hidden;
                 position: relative;
+                @include wide-pc{
+                    width: 248px;
+                    height: 155px;
+                    margin-bottom: 16px;
+                }
                 &:after{
                     content: '';
                     position: absolute;
@@ -319,6 +365,9 @@
                 @include font-style(1.8rem, $color-white,400);
                 transition: opacity 0.5s ease;
                 z-index: 10;
+                @include wide-pc{
+                    font-size: 18px;
+                }
             }
             &__text-box{
                 .blog-title{
@@ -331,6 +380,12 @@
                     overflow: hidden;
                     -webkit-line-clamp: 4;
                     -webkit-box-orient: vertical;
+                    @include wide-pc{
+                        max-width:248px;
+                        font-size: 16px;
+                        line-height: 1.5;
+                        margin-bottom: 40px;
+                    }
                 }
                 .blog-description{
                     width: 53.3rem;
@@ -345,6 +400,11 @@
                     align-items: center;
                     margin-top: 4rem;
                     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+                    @include wide-pc{
+                        font-size: 12px;
+                        line-height: 1;
+                        margin-top: 40px;
+                    }
                     &:before{
                         content: "";
                         margin-right: 0.8rem;
@@ -356,6 +416,9 @@
                         background-size: contain;
                         background-repeat: no-repeat;
                         background-position: center;
+                        @include wide-pc{
+                            margin-right: 8px;
+                        }
                     }
 
                 }

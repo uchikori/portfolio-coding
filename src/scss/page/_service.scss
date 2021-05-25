@@ -40,11 +40,17 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
+            @include wide-pc{
+                padding: 24px 0;
+            }
             @include tab{
                 padding: 1.6rem 0;
             }
             &__service{
                 width: 33.5rem;
+                @include wide-pc{
+                    width: 335px;
+                }
                 @include tab{
                     width: 16.9rem;
                 }
@@ -54,6 +60,10 @@
                 height: 4.8rem;
                 background: transparent;
                 position: relative;
+                @include wide-pc{
+                    width: 48px;
+                    height: 48px;
+                }
                 @include tab{
                     width: 2rem;
                     height: 2rem;
@@ -68,6 +78,10 @@
                     top: 50%;
                     transform: rotateZ(90deg);
                     transition: transform 0.5s ease;
+                    @include wide-pc{
+                        width: 48px;
+                        height: 4px;
+                    }
                     @include tab{
                         width: 2rem;
                         height: 0.2rem;
@@ -82,6 +96,10 @@
                     top: 50%;
                     transition: opacity 0.5s ease;
                     opacity: 1;
+                    @include wide-pc{
+                        width: 48px;
+                        height: 4px;
+                    }
                     @include tab{
                         width: 2rem;
                         height: 0.2rem;
@@ -121,17 +139,29 @@
     }
     .title-svgImg{
         margin-bottom: 3.2rem;
+        @include wide-pc{
+            margin-bottom: 32px;
+        }
         @include tab{
             margin: 0 auto 1.8rem auto;
         }
         &.writing{
             width: 15.7rem;
+            @include wide-pc{
+                width: 157px;
+            }
         }
         &.server{
             width: 12.6rem;
+            @include wide-pc{
+                width: 126px;
+            }
         }
         &.photo{
             width: 10.8rem;
+            @include wide-pc{
+                width: 108px;
+            }
         }
     }
 }

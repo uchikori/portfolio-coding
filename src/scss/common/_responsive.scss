@@ -1,4 +1,4 @@
-$wide-pc: 1920px;//ワイドPC
+$wide-pc: 1930px;//ワイドPC
 $pc: 1200px; // PC
 $tab: 768px; // タブレット
 $sp: 375px;  // スマホ
@@ -8,7 +8,7 @@ $tab-size: 768;
 
 // メディアクエリー
 @mixin wide-pc {
-  @media (min-width: ($pc)) {
+  @media (min-width: ($wide-pc)) {
     @content;
   }
 }

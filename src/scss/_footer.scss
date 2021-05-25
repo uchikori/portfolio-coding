@@ -1,10 +1,17 @@
 footer{
     text-align: center;
     padding-bottom: 2.3rem;
+    @include wide-pc{
+        padding-bottom: 23px;
+    }
     small{
         font-family: $font-orbit;
         @include font-style(1.6rem, $color-white,400);
         line-height: 1.6rem;
+        @include wide-pc{
+            font-size: 16px;
+            line-height: 1;
+        }
         @include sp{
             @include font-style(1rem, $color-white, 100);
             line-height: 1rem;

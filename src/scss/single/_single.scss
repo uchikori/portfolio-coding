@@ -7,6 +7,9 @@
         height: 100vh;
         position: relative;
         margin-bottom: -36.3rem;
+        @include wide-pc{
+            margin-bottom: -363px;
+        }
         @include tab{
             margin-bottom: -16.5rem;
         }
@@ -42,6 +45,11 @@
                 color: #000438;
                 margin-bottom: 3.2rem;
                 text-decoration: none;
+                @include wide-pc{
+                    font-size: 20px;
+                    padding: 5px 28px;
+                    margin-bottom: 32px;
+                }
                 @include tab{
                     font-size: 1.4rem;
                     padding: 0.6rem 2.7rem;
@@ -55,6 +63,10 @@
                 margin-bottom: 3.2rem;
                 padding: 0;
                 border: none;
+                @include wide-pc{
+                    font-size: 48px;
+                    margin-bottom: 32px;
+                }
                 @include tab{
                     font-size: 3.2rem;
                     line-height: 1.5;
@@ -68,6 +80,9 @@
                 line-height: 1;
                 font-family: $font-orbit;
                 text-transform: uppercase;
+                @include wide-pc{
+                    font-size: 20px;
+                }
                 @include tab{
                     font-size: 1.4rem;
                     line-height: 2.6;
@@ -82,6 +97,11 @@
         width: 154.4rem;
         height: 83.2rem;
         margin: 0 calc(50%-77.2rem) 8rem;
+        @include wide-pc{
+            width: 1544px;
+            height: 832px;
+            margin: 0 calc(50% - 772px) 80px;
+        }
         @include tab{
             width: 100%;
             height: 17rem;
@@ -95,8 +115,10 @@
         }
         &__item{
             text-align: center;
-            // background-color: $color-trans-bg;
             padding-top: 0.4rem;
+            @include wide-pc{
+                padding-top: 4px;
+            }
             @include tab{
                 width: 15rem;
                 padding-top: 0.7rem;
@@ -119,6 +141,10 @@
             padding: 0;
             border-left: none;
             text-transform: uppercase;
+            @include wide-pc{
+                font-size: 24px;
+                margin-bottom: 16px;
+            }
             @include tab{
                 font-size: 1.2rem;
                 margin-bottom: 1.8rem;
@@ -127,6 +153,9 @@
         &__info{
             @include font-style(1.6rem, $color-white, normal);
             line-height: 2;
+            @include wide-pc{
+                font-size: 16px;
+            }
             @include tab{
                 font-size: 1rem;
                 line-height: 1;
@@ -138,6 +167,11 @@
             width: 100vw;
             height: 90rem;
             margin: 0 calc(50% -50vw);
+            @include wide-pc {
+                width: 1920px;
+                height: 900px;
+                margin: 0 calc(50%-960px);
+            }
             @include tab{
                 height: 17.6rem;
             }
@@ -154,6 +188,10 @@
         &__video{
             width: 116.8rem;
             height: 64rem;
+            @include wide-pc {
+                width: 100%;
+                height: 640px;
+            }
             @include tab{
                 width: 100%;
                 height: 20rem;
@@ -162,6 +200,9 @@
                 width: 100%;
                 height: 64rem;
                 object-fit: cover;
+                @include wide-pc{
+                    height: 100%;
+                }
                 @include tab{
                     height: 20rem;
                 }
@@ -175,6 +216,11 @@
             img{
                 object-fit: cover;
             }
+            @include wide-pc{
+                width: 968px;
+                height: 645px;
+                margin: 0 auto -50px auto;
+            }
             @include tab{
                 width: 100%;
                 height: 20.9rem;
@@ -187,6 +233,11 @@
             margin: 0 calc(50% - 50vw);
             position: relative;
             z-index: -10;
+            @include wide-pc{
+                width: 1920px;
+                height: 700px;
+                margin: 0 calc(50% - 960px);
+            }
             @include tab{
                 height: 24rem;
             }
@@ -215,6 +266,10 @@
     .bt1 {
         top:11.1rem;
         height:3.3rem;
+        @include wide-pc{
+            top: 111px;
+            height: 33px;
+        }
         @include tab{
             top: 6.9375rem;
             height: 2.0625;
@@ -223,6 +278,9 @@
       
     .bt2 {
         top: 18.6rem;
+        @include wide-pc{
+            top: 186px;
+        }
         @include tab{
             top: 11.625rem;
         }
@@ -230,6 +288,9 @@
       
     .bt3 {
         top: 24.5rem;
+        @include wide-pc{
+            top: 245px;
+        }
         @include tab{
             top: 15.3125rem;
         }
@@ -249,6 +310,9 @@
         border-radius: 4.5rem;
         box-shadow: 0px 0px 3px 1px #000 inset;
         border: 2px solid #4a4a4a;
+        @include wide-pc{
+            border-radius: 45px;
+        }
         @include tab{
             border-radius: 2.4rem;
         }
@@ -257,13 +321,15 @@
     .border {
         border: 0.5rem solid #3d3d3d;
         border-radius: 5.1rem;
+        @include wide-pc{
+            border: 5px solid #3d3d3d;
+            border-radius: 51px;
+        }
         @include tab{
             border-radius: 2.72rem;
             border: 0.3rem solid #3d3d3d;
         }
     }
-      
-      
     .camera {
         position: absolute;
         left: 50%;
@@ -275,6 +341,13 @@
         border-radius: 0.8rem;
         background: #454545;
         border: 0.4rem solid #000;
+        @include wide-pc{
+            top: 25px;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            border: 4px solid #000;
+        }
         @include tab{
             top: 1.5625rem;
             width: 0.5rem;
@@ -294,6 +367,13 @@
         border-radius: 0.8rem;
         background: #454545;
         border: 0.4rem solid #000; 
+        @include wide-pc{
+            width: 62px;
+            height: 8px;
+            top: 59px;
+            border-radius: 8px;
+            border: 4px solid #000;
+        }
         @include tab{
             width: 3.875rem;
             height: 0.5rem;
@@ -316,6 +396,11 @@
         left: 50%;
         transform: translateX(-50%);
         cursor: pointer;
+        @include wide-pc{
+            width: 56px;
+            height: 56px;
+            bottom: 14px;
+        }
         @include tab{
             bottom: 0.875rem;
         }
@@ -335,6 +420,10 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        @include wide-pc{
+            width: 20px;
+            height: 20px;    
+        }
         @include tab{
             border: 1px solid #6e6e6e;
         }
@@ -351,6 +440,11 @@
         margin: 8.3rem 2.2rem 8.2rem;
         overflow-y: scroll;
         scrollbar-width: none;
+        @include wide-pc{
+            width: 320px;
+            height: 560px;
+            margin: 83px 22px 82px;
+        }
         @include tab{
             width: 20rem;
             height: 36rem;
@@ -368,6 +462,10 @@
     .iphone .homebt {
         width: 5.6rem;
         height: 5.6rem;
+        @include wide-pc{
+            width: 56px;
+            height: 56px;
+        }
         @include tab{
             width: 3.5rem;
             height: 3.5rem;
@@ -377,6 +475,10 @@
     .iphone .homebt:before {
         width: 2rem;
         height: 2rem;
+        @include wide-pc{
+            width: 20px;
+            height: 20px;
+        }
         @include tab{
             width: 1.25rem;
             height: 1.25rem;
@@ -392,6 +494,11 @@
         left: -0.4rem;
         border-top-left-radius:3px;
         border-bottom-left-radius:3px;
+        @include wide-pc{
+            width: 3px;
+            height: 25px;
+            left: -4px;
+        }
         @include tab{
             width: 0.1875rem;
             height: 1.5625rem;
@@ -409,6 +516,12 @@
         border-top-right-radius: 3px;
         width: 5.9rem;
         height: 0.3rem;
+        @include wide-pc{
+            top: -4px;
+            right: 63px;
+            width: 59px;
+            height: 3px;    
+        }
         @include tab{
             width: 3.6875rem;
             right: 3.9375rem;

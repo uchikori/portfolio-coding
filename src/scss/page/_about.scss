@@ -5,6 +5,16 @@
             background-position: right -25rem bottom;
         }
     }
+    .my-image{
+        height: 66.8rem;
+        @include wide-pc{
+            height: 668px;
+        }
+        @include tab{
+            margin-bottom: 4rem;
+            height: 46.8rem;
+        }
+    }
     .block-table{
         table{
             width: 100%;
@@ -13,6 +23,9 @@
                 display: flex;
                 border-top: dashed 1px #aeaeae;
                 align-items: center;
+                @include wide-pc{
+                    padding: 16px 10px;
+                }
                 @include tab{
                     padding: 1.55rem 0.8rem;
                 }
@@ -23,12 +36,18 @@
                     @include font-style(1.6rem, $color-white, normal);
                     line-height: 1;
                     display: inline-block;
+                    @include wide-pc{
+                        font-size: 16px;
+                    }
                     @include tab{
                         font-size: 1.2rem;
                         line-height: 2.4rem;
                     }
                     span{
                         @include font-style(1.2rem, $color-white, normal);
+                        @include wide-pc {
+                            font-size: 12px;
+                        }
                         @include tab{
                             font-size: 1.2rem;
                         }
@@ -37,6 +56,9 @@
                         width: 29%;
                         font-size: 1.8rem;
                         line-height: 1;
+                        @include wide-pc{
+                            font-size: 18px;
+                        }
                         @include tab{
                             font-size: 1.4rem;
                             width: 38.5%;

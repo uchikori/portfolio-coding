@@ -59,6 +59,10 @@
             display: block;
             width: 25.5rem;
             height: 11.7rem;
+            @include wide-pc{
+                width: 255px;
+                height: 117px;
+            }
             @include tab{
                 width: 13rem;
                 height: 7.5rem;
@@ -77,6 +81,10 @@
             display: block;
             width: 25.5rem;
             height: 11.7rem;
+            @include wide-pc{
+                width: 255px;
+                height: 117px;
+            }
             @include tab{
                 width: 13rem;
                 height: 7.5rem;
