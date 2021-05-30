@@ -1,6 +1,6 @@
 .container{
     width: 100vw;
-    overflow: hidden;
+    // overflow: hidden;
     opacity: 0;
     body.appear &{
         animation: PageAnimeAppear 1s 0.8s forwards;
@@ -49,7 +49,7 @@
 	--move-initial: calc(-25% + var(--offset));
 	--move-final: calc(-50% + var(--offset));
 	--item-font-size: 10vw;
-    display: none;
+    // display: none;
     @include wide-pc{
         padding: 120px 0;
     }
@@ -139,6 +139,10 @@
     }
     &.menu-close{
         opacity: 1;
+        animation: hide 1s forwards ease;
+    }
+    &.menu-open{
+        animation: appear 1.6s forwards ease var(--i);
     }
     .marquee{
         position: absolute;

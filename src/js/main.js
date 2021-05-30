@@ -11,12 +11,14 @@ const canvas = document.getElementById('siteTopAnimation');
 const mainVisual = document.querySelector('.main-visual');
 const swiper = document.querySelector('.swiper-container');
 const title =document.querySelectorAll('.accordion-title');
+const text =document.querySelectorAll('.accordion-text');
 const svg = document.getElementById('svg');
 const scrollOn = document.querySelectorAll('.content__block');
 const gMenu = document.querySelector('.js-gMenu');
 const circleBg = document.querySelector('.circle-bg');
 let paginationCurrent = document.querySelector('.page-current');
 let paginationTotal = document.querySelector('.page-total');
+const pageWrap = document.querySelector('.page-wrapper');
 const scrollContainer = document.querySelector('.scroll-container');
 
 mouseStorker();
@@ -146,7 +148,7 @@ function mouseStorker(){
 
 /**
  * 
- * 3Dメニューアニメーション
+ * メニューアニメーション
  * 
  * */
 function menuOpen(){
@@ -163,17 +165,21 @@ function menuOpen(){
         if(gMenu.classList.contains('menu-open')){
             gMenu.classList.add('menu-close');
             gMenu.classList.remove('menu-open');
-            setTimeout(function(){
-                gMenu.style.display = 'none';
-            }, 1700);
+            circleBg.classList.remove('circleActive');
+            document.body.classList.remove('fixed');
+            // gMenu.style.display = 'none';
+
         } else {
             gMenu.classList.add('menu-open');
+            circleBg.classList.add('circleActive');
             gMenu.classList.remove('menu-close');
+            document.body.classList.add('fixed');
             gMenu.style.display = 'block';
+
         }
         
-        circleBg.classList.toggle('circleActive');
-        document.body.classList.toggle('fixed');
+        // circleBg.classList.toggle('circleActive');
+        // document.body.classList.toggle('fixed');
     
         //メニューが開いた状態でのスクロール禁止
         if(document.body.classList.contains('fixed')){
@@ -242,7 +248,6 @@ function waveAnimation(){
     let stageH = 0;
 
     const context = canvas.getContext('2d');
-
     noise.seed(Math.random());
 
     resize();
@@ -507,28 +512,30 @@ function sliceSlider(){
  * 
  * */
 function accordion(){
-    // for(let i = 0; i < title.length; i++){
-    //     let titleEach = title[i];
-    //     let textEach = titleEach.nextElementSibling;
-    //     titleEach.addEventListener('click', function(){
-    //         titleEach.classList.toggle('is-active');
-    //         textEach.classList.toggle('is-open');
-    //     });
-    // }
-    let faqItem = jQuery('.accordion-item')
-    faqItem.click(function(){
-        let answer = jQuery(this).find('.accordion-text');
-        let title = jQuery(this).find('.accordion-title');
-        if(answer.hasClass('open')){
-            answer.removeClass('open');
-            title.removeClass('is-active');
-            answer.slideUp();
-        } else {
-            answer.addClass('open');
-            title.addClass('is-active');
-            answer.slideDown();
-        }
-    });
+    for(let i = 0; i < title.length; i++){
+        let titleEach = title[i];
+        let textEach = titleEach.nextElementSibling;
+        titleEach.addEventListener('click', function(){
+            titleEach.classList.toggle('is-active');
+            textEach.classList.toggle('is-open');
+        });
+    }
+    // let faqItem = jQuery('.accordion-item')
+    // faqItem.click(function(){
+    //     let answer = jQuery(this).find('.accordion-text');
+    //     let title = jQuery(this).find('.accordion-title');
+    //     height = scrollContainer.clientHeight;
+    //     document.body.style.height = `${height}px`;
+    //     if(answer.hasClass('open')){
+    //         answer.removeClass('open');
+    //         title.removeClass('is-active');
+    //         answer.slideUp();
+    //     } else {
+    //         answer.addClass('open');
+    //         title.addClass('is-active');
+    //         answer.slideDown();
+    //     }
+    // });
 }
 
 /**
@@ -582,28 +589,40 @@ function scrollAnimation(){
 
 
 function scrollParallax(){
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(ScrollToPlugin);
+    if(!navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)){
+        gsap.registerPlugin(ScrollTrigger);
+        // gsap.registerPlugin(ScrollToPlugin);
 
-    // let container = document.querySelector('.scroll-container');
-    let height;
+        
+        let height;
 
-    function setHeight(){
-        height = scrollContainer.clientHeight;
-        document.body.style.height = `${height}px`;
-        console.log(height);
+        // function setHeight(){
+        //     height = scrollContainer.clientHeight;
+        //     document.body.style.height = `${height}px`;
+        // }
+
+        
+        // ScrollTrigger.addEventListener('refreshInit', setHeight);
+        gsap.to(scrollContainer, {
+            y: function(){
+                return -(height - document.documentElement.clientHeight);
+            },
+            ease: 'none',
+            scrollTrigger: {
+                target: scrollContainer,
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 1,
+                invalidateOnRefresh: true
+            },
+            onUpdate: function(){
+                height = scrollContainer.scrollHeight;
+                document.body.style.height = `${height}px`;
+            },
+        });
+    } else {
+        pageWrap.style.position = 'static';
+        scrollContainer.style.position = 'static';
     }
-
-    ScrollTrigger.addEventListener('refreshInit', setHeight);
-    gsap.to(scrollContainer, {
-        y: () => -(height - document.documentElement.clientHeight),
-        ease: 'none',
-        scrollTrigger: {
-            target: document.body,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 1,
-            invalidateOnRefresh: true
-        }
-    });
+    
 }

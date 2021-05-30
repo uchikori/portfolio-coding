@@ -25,12 +25,14 @@ var canvas = document.getElementById('siteTopAnimation');
 var mainVisual = document.querySelector('.main-visual');
 var swiper = document.querySelector('.swiper-container');
 var title = document.querySelectorAll('.accordion-title');
+var text = document.querySelectorAll('.accordion-text');
 var svg = document.getElementById('svg');
 var scrollOn = document.querySelectorAll('.content__block');
 var gMenu = document.querySelector('.js-gMenu');
 var circleBg = document.querySelector('.circle-bg');
 var paginationCurrent = document.querySelector('.page-current');
 var paginationTotal = document.querySelector('.page-total');
+var pageWrap = document.querySelector('.page-wrapper');
 var scrollContainer = document.querySelector('.scroll-container');
 mouseStorker();
 mouseHover();
@@ -162,7 +164,7 @@ function mouseHover() {
 }
 /**
  * 
- * 3Dメニューアニメーション
+ * メニューアニメーション
  * 
  * */
 
@@ -182,17 +184,18 @@ function menuOpen() {
     if (gMenu.classList.contains('menu-open')) {
       gMenu.classList.add('menu-close');
       gMenu.classList.remove('menu-open');
-      setTimeout(function () {
-        gMenu.style.display = 'none';
-      }, 1700);
+      circleBg.classList.remove('circleActive');
+      document.body.classList.remove('fixed'); // gMenu.style.display = 'none';
     } else {
       gMenu.classList.add('menu-open');
+      circleBg.classList.add('circleActive');
       gMenu.classList.remove('menu-close');
+      document.body.classList.add('fixed');
       gMenu.style.display = 'block';
-    }
+    } // circleBg.classList.toggle('circleActive');
+    // document.body.classList.toggle('fixed');
+    //メニューが開いた状態でのスクロール禁止
 
-    circleBg.classList.toggle('circleActive');
-    document.body.classList.toggle('fixed'); //メニューが開いた状態でのスクロール禁止
 
     if (document.body.classList.contains('fixed')) {
       // スクロール禁止(SP)
@@ -533,29 +536,34 @@ function sliceSlider() {
 
 
 function accordion() {
-  // for(let i = 0; i < title.length; i++){
-  //     let titleEach = title[i];
-  //     let textEach = titleEach.nextElementSibling;
-  //     titleEach.addEventListener('click', function(){
-  //         titleEach.classList.toggle('is-active');
-  //         textEach.classList.toggle('is-open');
-  //     });
-  // }
-  var faqItem = jQuery('.accordion-item');
-  faqItem.click(function () {
-    var answer = jQuery(this).find('.accordion-text');
-    var title = jQuery(this).find('.accordion-title');
+  var _loop = function _loop(i) {
+    var titleEach = title[i];
+    var textEach = titleEach.nextElementSibling;
+    titleEach.addEventListener('click', function () {
+      titleEach.classList.toggle('is-active');
+      textEach.classList.toggle('is-open');
+    });
+  };
 
-    if (answer.hasClass('open')) {
-      answer.removeClass('open');
-      title.removeClass('is-active');
-      answer.slideUp();
-    } else {
-      answer.addClass('open');
-      title.addClass('is-active');
-      answer.slideDown();
-    }
-  });
+  for (var i = 0; i < title.length; i++) {
+    _loop(i);
+  } // let faqItem = jQuery('.accordion-item')
+  // faqItem.click(function(){
+  //     let answer = jQuery(this).find('.accordion-text');
+  //     let title = jQuery(this).find('.accordion-title');
+  //     height = scrollContainer.clientHeight;
+  //     document.body.style.height = `${height}px`;
+  //     if(answer.hasClass('open')){
+  //         answer.removeClass('open');
+  //         title.removeClass('is-active');
+  //         answer.slideUp();
+  //     } else {
+  //         answer.addClass('open');
+  //         title.addClass('is-active');
+  //         answer.slideDown();
+  //     }
+  // });
+
 }
 /**
  * 
@@ -609,29 +617,34 @@ function scrollAnimation() {
 }
 
 function scrollParallax() {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.registerPlugin(ScrollToPlugin); // let container = document.querySelector('.scroll-container');
+  if (!navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)) {
+    gsap.registerPlugin(ScrollTrigger); // gsap.registerPlugin(ScrollToPlugin);
 
-  var height;
+    var height; // function setHeight(){
+    //     height = scrollContainer.clientHeight;
+    //     document.body.style.height = `${height}px`;
+    // }
+    // ScrollTrigger.addEventListener('refreshInit', setHeight);
 
-  function setHeight() {
-    height = scrollContainer.clientHeight;
-    document.body.style.height = "".concat(height, "px");
-    console.log(height);
+    gsap.to(scrollContainer, {
+      y: function y() {
+        return -(height - document.documentElement.clientHeight);
+      },
+      ease: 'none',
+      scrollTrigger: {
+        target: scrollContainer,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1,
+        invalidateOnRefresh: true
+      },
+      onUpdate: function onUpdate() {
+        height = scrollContainer.scrollHeight;
+        document.body.style.height = "".concat(height, "px");
+      }
+    });
+  } else {
+    pageWrap.style.position = 'static';
+    scrollContainer.style.position = 'static';
   }
-
-  ScrollTrigger.addEventListener('refreshInit', setHeight);
-  gsap.to(scrollContainer, {
-    y: function y() {
-      return -(height - document.documentElement.clientHeight);
-    },
-    ease: 'none',
-    scrollTrigger: {
-      target: document.body,
-      start: 'top top',
-      end: 'bottom bottom',
-      scrub: 1,
-      invalidateOnRefresh: true
-    }
-  });
 }

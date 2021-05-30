@@ -543,28 +543,38 @@ template {
 }
 
 @-webkit-keyframes hide {
-  from {
+  0% {
     opacity: 1;
     -webkit-transform: translateX(0px);
             transform: translateX(0px);
   }
-  to {
+  80% {
     opacity: 0;
     -webkit-transform: translateX(20%);
             transform: translateX(20%);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(500%);
+            transform: translateX(500%);
   }
 }
 
 @keyframes hide {
-  from {
+  0% {
     opacity: 1;
     -webkit-transform: translateX(0px);
             transform: translateX(0px);
   }
-  to {
+  80% {
     opacity: 0;
     -webkit-transform: translateX(20%);
             transform: translateX(20%);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(500%);
+            transform: translateX(500%);
   }
 }
 
@@ -1210,7 +1220,6 @@ body.appear .splash-bg {
 
 .container {
   width: 100vw;
-  overflow: hidden;
   opacity: 0;
 }
 
@@ -1238,7 +1247,6 @@ body.appear .container {
   --move-initial: calc(-25% + var(--offset));
   --move-final: calc(-50% + var(--offset));
   --item-font-size: 10vw;
-  display: none;
 }
 
 .g-menu__item {
@@ -1301,8 +1309,8 @@ body.appear .container {
   top: 10%;
   -webkit-transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
           transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
-  -webkit-box-shadow: 0 0 1.6rem #2E2E46, 0 0 1.6rem #2E2E46, 0 0 1.6rem #2E2E46;
-          box-shadow: 0 0 1.6rem #2E2E46, 0 0 1.6rem #2E2E46, 0 0 1.6rem #2E2E46;
+  -webkit-box-shadow: 0 0 1.6rem #fbfbff, 0 0 1.6rem #fbfbff, 0 0 1.6rem #fbfbff;
+          box-shadow: 0 0 1.6rem #fbfbff, 0 0 1.6rem #fbfbff, 0 0 1.6rem #fbfbff;
 }
 
 .menu-open .g-menu__item {
@@ -1317,6 +1325,13 @@ body.appear .container {
 
 .g-menu.menu-close {
   opacity: 1;
+  -webkit-animation: hide 1s forwards ease;
+          animation: hide 1s forwards ease;
+}
+
+.g-menu.menu-open {
+  -webkit-animation: appear 1.6s forwards ease var(--i);
+          animation: appear 1.6s forwards ease var(--i);
 }
 
 .g-menu .marquee {
@@ -1408,8 +1423,8 @@ body.appear .container {
 }
 
 .scroll-on {
-  -webkit-animation: block-appear 1.8s forwards ease;
-          animation: block-appear 1.8s forwards ease;
+  -webkit-animation: block-appear 1s forwards ease;
+          animation: block-appear 1s forwards ease;
 }
 
 .scroll-lead {
@@ -1530,7 +1545,7 @@ body.appear .container {
   position: relative;
   height: 100%;
   width: 100vw;
-  background-color: #2E2E46;
+  background-color: #fbfbff;
   -webkit-transition: background 1s cubic-bezier(0.96, 0.165, 0, 0.655), -webkit-transform 0.5s ease;
   transition: background 1s cubic-bezier(0.96, 0.165, 0, 0.655), -webkit-transform 0.5s ease;
   transition: background 1s cubic-bezier(0.96, 0.165, 0, 0.655), transform 0.5s ease;
@@ -2028,7 +2043,6 @@ body.appear .container {
   transition: max-height 0s 0.8s ease, -webkit-transform 0.5s ease;
   transition: transform 0.5s ease, max-height 0s 0.8s ease;
   transition: transform 0.5s ease, max-height 0s 0.8s ease, -webkit-transform 0.5s ease;
-  overflow: hidden;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -2201,7 +2215,19 @@ body.appear .container {
 }
 
 .page-wrapper.service .accordion-item .accordion-text {
-  display: none;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.5s ease, opacity 0.5s ease;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.page-wrapper.service .accordion-item .accordion-text.is-open {
+  max-height: 100vh;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: max-height 0.5s ease, opacity 0.5s ease;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
 .page-wrapper.service .accordion-item .is-active .toggle-btn:after {
@@ -2692,6 +2718,26 @@ body.appear .container {
   width: 65.756%;
 }
 
+.page-wrapper.contact .contact-form .wpcf7-form-control-wrap.your-name {
+  width: 31.508%;
+  margin-right: 51.2px;
+  margin-right: 3.2rem;
+}
+
+.page-wrapper.contact .contact-form .wpcf7-form-control-wrap.your-fn {
+  width: 31.508%;
+}
+
+.page-wrapper.contact .contact-form .wpcf7-form-control-wrap.your-kana {
+  width: 31.508%;
+  margin-right: 51.2px;
+  margin-right: 3.2rem;
+}
+
+.page-wrapper.contact .contact-form .wpcf7-form-control-wrap.your-mei {
+  width: 31.508%;
+}
+
 .page-wrapper.thanks:before {
   background-image: url("../images/contact-background.webp");
 }
@@ -2898,6 +2944,7 @@ body.appear .container {
 }
 
 .content__block {
+  opacity: 0;
   padding: 160px 0;
   padding: 10rem 0;
 }
@@ -3035,6 +3082,14 @@ body.appear .container {
   transition: background-image 0.3s ease, transform 0.5s ease;
   transition: background-image 0.3s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 60"><path fill="%23D40A83" d="M 22.55300903320313 2 L 12.36471557617188 10.17288589477539 L 2 19.22367477416992 L 2 58 L 345.2497253417969 58 L 355.4876403808594 49.99462890625 L 365.9812622070313 41.08939361572266 L 365.9990844726563 2 L 22.55300903320313 2 M 21.85000610351563 0 L 368 0 L 367.9808349609375 42.01560211181641 L 356.7509460449219 51.54565048217773 L 345.9388427734375 60 L 0 60 L 0 18.31494903564453 L 11.0804443359375 8.639148712158203 L 21.85000610351563 0 Z"/></svg>');
+}
+
+.scroll-container {
+  width: 100%;
+  position: absolute;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 .web-tips-template-default h1 {
@@ -3661,15 +3716,6 @@ body.appear .container {
           animation: noise-3 1s linear infinite;
 }
 
-.scroll-container {
-  width: 100%;
-  position: absolute;
-  overflow: hidden;
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
-
 footer {
   text-align: center;
   padding-bottom: 36.8px;
@@ -3923,6 +3969,18 @@ footer small {
   }
   .page-wrapper.contact .contact-form .wpcf7-form-control-wrap {
     width: 100%;
+  }
+  .page-wrapper.contact .contact-form .wpcf7-form-control-wrap.your-name {
+    margin-right: 0;
+    margin-bottom: 1.6rem;
+    width: 100%;
+    display: inline-block;
+  }
+  .page-wrapper.contact .contact-form .wpcf7-form-control-wrap.your-kana {
+    margin-right: 0;
+    margin-bottom: 1.6rem;
+    width: 100%;
+    display: inline-block;
   }
   .page-wrapper.thanks .sns-block:before {
     height: 18rem;
@@ -4301,8 +4359,8 @@ footer small {
     width: 500px;
     height: 280px;
     max-height: 280px;
-    -webkit-box-shadow: 0 0 16px #2E2E46, 0 0 16px #2E2E46, 0 0 16px #2E2E46;
-            box-shadow: 0 0 16px #2E2E46, 0 0 16px #2E2E46, 0 0 16px #2E2E46;
+    -webkit-box-shadow: 0 0 16px #fbfbff, 0 0 16px #fbfbff, 0 0 16px #fbfbff;
+            box-shadow: 0 0 16px #fbfbff, 0 0 16px #fbfbff, 0 0 16px #fbfbff;
   }
   .g-menu .marquee span {
     font-size: 68px;

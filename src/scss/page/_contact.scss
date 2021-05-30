@@ -139,6 +139,32 @@
             @include tab{
                 width: 100%;
             }
+            &.your-name{
+                @include flex-width(4);
+                margin-right: 3.2rem;
+                @include tab{
+                    margin-right: 0;
+                    margin-bottom: 1.6rem;
+                    width: 100%;
+                    display: inline-block;
+                }
+            }
+            &.your-fn{
+                @include flex-width(4);
+            }
+            &.your-kana{
+                @include flex-width(4);
+                margin-right: 3.2rem;
+                @include tab{
+                    margin-right: 0;
+                    margin-bottom: 1.6rem;
+                    width: 100%;
+                    display: inline-block;
+                }
+            }
+            &.your-mei{
+                @include flex-width(4);
+            }
         } 
     }
 }

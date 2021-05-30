@@ -96,11 +96,3 @@
         animation: noise-3 1s linear infinite;
     }
 }
-
-.scroll-container{
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
-    will-change: transform;
-    backface-visibility: hidden;
-}
